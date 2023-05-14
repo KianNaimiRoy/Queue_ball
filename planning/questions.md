@@ -16,3 +16,5 @@ A. cookie
 Q. do we need to add a table for admins? can we just add a column in users for is_admin?
 are custom routes an option? or maybe setState? what is the simplest solution?
 A. Add a column in users table for is_admin boolean
+
+Q. Why does git 
