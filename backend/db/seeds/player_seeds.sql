@@ -4,4 +4,5 @@ VALUES ('Booch Scootem', null, true, null),
 ('Rick Dickles', null, false, null),
 ('Bingo', null, false, null),
 ('Bongo', null, false, null),
+('Bango', null, false, null),
 ('Luigi', null, false, null);
