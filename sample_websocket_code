@@ -1,0 +1,95 @@
+socket.on('createUser', (data) => {
+  // Insert data into the database
+  connection.query('INSERT INTO users SET ?', data, (err, results) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return;
+    }
+    console.log('User created:', results);
+  });
+});
+
+
+// -----------------------------------------------------------------------------------
+
+
+
+const { Server } = require('socket.io');
+const { Pool } = require('pg');
+
+// Create a PostgreSQL connection pool
+const pool = new Pool({
+  user: 'your_username',
+  password: 'your_password',
+  host: 'localhost',
+  port: 5432,
+  database: 'your_database',
+});
+
+// Create a Socket.IO server instance
+const io = new Server();
+
+// Handle socket connections
+io.on('connection', (socket) => {
+  const userId = getUserId(); // Retrieve the user ID associated with the socket
+
+  // Store the socket ID in PostgreSQL
+  const query = {
+    text: 'INSERT INTO sockets (user_id, socket_id) VALUES ($1, $2) ON CONFLICT (user_id) DO UPDATE SET socket_id = $2',
+    values: [userId, socket.id],
+  };
+
+  pool.query(query)
+    .catch((err) => {
+      // Handle the error
+    });
+
+  // Handle socket disconnections
+  socket.on('disconnect', () => {
+    // Remove the socket ID from PostgreSQL
+    const deleteQuery = {
+      text: 'DELETE FROM sockets WHERE user_id = $1',
+      values: [userId],
+    };
+
+    pool.query(deleteQuery)
+      .catch((err) => {
+        // Handle the error
+      });
+  });
+});
+
+// Start the server
+const server = require('http').createServer();
+io.attach(server);
+server.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+// ---------------------------------------------------------------------------------------
+
+
+// Configure Socket.IO
+io.on('connection', (socket) => {
+  const sessionID = socket.handshake.sessionID; // Retrieve the session ID
+
+  // Associate the session ID with the socket ID
+  // You can store this association in a database or in-memory cache if needed
+  // Here, we simply store it as a property on the socket object
+  socket.sessionID = sessionID;
+
+  // Additional socket connection logic
+  // ...
+});
+
+// Access session data from the socket
+io.on('connection', (socket) => {
+  const sessionID = socket.sessionID; // Retrieve the associated session ID
+
+  // Access session data using the session ID
+  const sessionData = socket.request.session;
+  // You can access session properties like sessionData.userId, sessionData.username, etc.
+
+  // Additional socket connection logic
+  // ...
+});
