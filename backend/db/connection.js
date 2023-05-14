@@ -1,18 +1,16 @@
-const pg = require('pg');
+// PG database client/connection setup
+const { Pool } = require("pg");
 
-const Client = pg.Client; // single connection to the database
-// const Pool = pg.Pool; // collection of clients (5); managed
-
-const config = {
+const dbParams = {
   host: process.env.DB_HOST,
-  name: process.env.DB_NAME,
+  port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
+  database: process.env.DB_NAME
 };
 
-const client = new Client(config);
+const db = new Pool(dbParams);
 
-client.connect();
+db.connect();
 
-module.exports = client;
+module.exports = db;
