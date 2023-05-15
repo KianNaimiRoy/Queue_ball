@@ -1,6 +1,4 @@
 $nav-background: rgb(173, 97, 173);
-$queue-ball-background: white;
-$queue-ball-border: black;
 
 .navbar {
   display: flex;
@@ -9,16 +7,4 @@ $queue-ball-border: black;
   height: 100px;
   width: 100%;
   background-color: $nav-background;
-}
-
-.queue-ball {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $queue-ball-background;
-  border: 3px solid $queue-ball-border;
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-  margin-top: 7rem;
 }

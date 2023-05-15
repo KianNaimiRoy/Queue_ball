@@ -1,11 +1,10 @@
 import "./Navigation.scss";
+import Ball from "./Ball";
 
 const Navigation = function () {
   return (
     <div class="navbar">
-      <div class="queue-ball">
-        <h1>QueueBall</h1>
-      </div>
+      <Ball />
     </div>
   );
 };
