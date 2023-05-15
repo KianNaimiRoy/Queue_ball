@@ -8,9 +8,7 @@ $table-list-border: black;
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
   background-color: $table-list-background;
-  border: 2px solid $table-list-border;
   z-index: -1;
   padding: 8rem 1rem;
 }
