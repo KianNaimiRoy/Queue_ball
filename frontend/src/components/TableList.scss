@@ -7,10 +7,10 @@ $table-list-border: black;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: $table-list-background;
   border: 2px solid $table-list-border;
   z-index: -1;
-  // padding: 6rem 1rem 1rem 1rem;
+  padding: 8rem 1rem;
 }
