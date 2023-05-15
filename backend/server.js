@@ -4,8 +4,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
-const bodyParser = require('body-parser')
-
+const bodyParser = require('body-parser');
 
 
 app.use(morgan('dev'));
@@ -14,16 +13,14 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World');
-// });
-
 const playerApiRoutes = require('./routes/players-api');
-
+const tableApiRoutes = require('./routes/tables-api');
 
 
 
 app.use('/api/players', playerApiRoutes);
+app.use('/api/tables', tableApiRoutes);
+
 
 
 app.listen(PORT, () => {

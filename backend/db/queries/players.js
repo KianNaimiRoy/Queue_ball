@@ -37,6 +37,7 @@ const enqueuePlayerByID = function(id, player) {
     });
 };
 
+//remove player from the queue
 const dequeuePlayerByID = function(id, player) {
   return client
     .query('UPDATE players SET name = $1, enqueued_at = null, table_id = null WHERE id = $2 RETURNING *',
