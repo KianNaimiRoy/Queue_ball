@@ -1,3 +1,4 @@
+$table-list-item-background: white;
 $table-list-item-border: black;
 
 .table-list-item {
@@ -8,5 +9,11 @@ $table-list-item-border: black;
   width: 300px;
   height: 300px;
   border: 2px solid $table-list-item-border;
+  background-color: $table-list-item-background;
   border-radius: 1rem;
+  margin: 1rem;
+}
+
+p {
+  font-size: 4rem;
 }
