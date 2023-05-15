@@ -1,0 +1,16 @@
+$table-list-background: rgb(255, 172, 255);
+$table-list-border: black;
+
+.table-list {
+  display: flex;
+  flex-direction: flex-wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: $table-list-background;
+  border: 2px solid $table-list-border;
+  z-index: -1;
+  // padding: 6rem 1rem 1rem 1rem;
+}

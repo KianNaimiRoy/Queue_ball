@@ -1,0 +1,12 @@
+$table-list-item-border: black;
+
+.table-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border: 2px solid $table-list-item-border;
+  border-radius: 1rem;
+}
