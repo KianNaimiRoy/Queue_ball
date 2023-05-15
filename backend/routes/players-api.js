@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//add a player to the queue
+//when a player joins the queue
 router.patch('/enqueued/:id', (req, res) => {
   const playerID = req.params.id;
   const player = req.body;
