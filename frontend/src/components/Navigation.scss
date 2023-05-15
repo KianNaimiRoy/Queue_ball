@@ -1,4 +1,5 @@
 $nav-background: rgb(173, 97, 173);
+$nav-border-bottom: black;
 
 .navbar {
   display: flex;
@@ -7,4 +8,5 @@ $nav-background: rgb(173, 97, 173);
   height: 100px;
   width: 100%;
   background-color: $nav-background;
+  border-bottom: 2px solid $nav-border-bottom;
 }
