@@ -3,7 +3,7 @@ import Ball from "./Ball";
 
 const Navigation = function () {
   return (
-    <div class="navbar">
+    <div className="navbar">
       <Ball />
     </div>
   );

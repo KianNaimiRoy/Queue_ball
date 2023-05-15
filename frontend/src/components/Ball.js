@@ -2,7 +2,7 @@ import "./Ball.scss";
 
 const Ball = function () {
   return (
-    <div class="queue-ball">
+    <div className="queue-ball">
       <h1>QueueBall</h1>
     </div>
   );
