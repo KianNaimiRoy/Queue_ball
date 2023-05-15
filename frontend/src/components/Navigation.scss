@@ -1,0 +1,10 @@
+$nav-background: rgb(173, 97, 173);
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: $nav-background;
+}
