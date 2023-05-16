@@ -18,7 +18,12 @@ const TableList = function (props) {
 
   const listTables = tables.map((table) => {
     return (
-      <TableListItem key={table.table_id} id={table.id} count={table.players} />
+      <TableListItem
+        key={table.id}
+        id={table.id}
+        count={table.players}
+        status={table.is_available}
+      />
     );
   });
 
