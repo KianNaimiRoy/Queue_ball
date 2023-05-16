@@ -3,7 +3,6 @@ import "./Form.scss";
 import Button from "../Button";
 import "../Button.scss";
 import addPlayer from "../../helpers/add_player";
-import { cookieCheck } from "../../helpers/cookie_check";
 
 
 const Form = function(props) {
@@ -17,9 +16,9 @@ const Form = function(props) {
     }
     setError("");
     addPlayer(player);
-    cookieCheck()
-      
+    props.onClose();
   };
+
 
   return (
     <main className="user-handle-form">
