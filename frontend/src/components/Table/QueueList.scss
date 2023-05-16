@@ -1,0 +1,15 @@
+$queue-list-background: rgb(255, 172, 255);
+$queue-list-border: black;
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $queue-list-background;
+  z-index: -1;
+  padding: 8rem 0;
+}
