@@ -3,14 +3,15 @@ import Navigation from "./components/Navigation";
 import UsernamePrompt from "./components/UsernamePrompt";
 import TableList from "./components/TableList";
 import useAppData from "./components/hooks/useAppData";
+import { setCookie } from "./helpers/cookie_check";
 import "./App.scss";
 
 const App = function(props) {
   const { state } = useAppData();
-  const [prompt, setIsPrompted] = useState(true);
+  const [prompt, setPrompt] = useState(true);
 
   const togglePrompt = () => {
-    setIsPrompted(!prompt);
+    setPrompt(!prompt);
   };
 
   return (
@@ -21,11 +22,11 @@ const App = function(props) {
       />
       <div>
         {prompt && <UsernamePrompt
-        onClose={togglePrompt}
+          onClose={togglePrompt}
         />}
       </div>
       <Navigation />
-      <TableList />
+      {!setCookie ? <UsernamePrompt /> : <TableList />}
     </main>
   );
 };
