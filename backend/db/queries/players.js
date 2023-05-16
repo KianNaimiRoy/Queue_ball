@@ -50,6 +50,7 @@ const dequeuePlayerByID = function(id, player) {
     });
 };
 
+//add player to the database
 const addPlayer = function(player) {
   return client
     .query('INSERT INTO players (name, enqueued_at, is_admin, table_id) VALUES($1, null, false, null) RETURNING *',
@@ -57,8 +58,9 @@ const addPlayer = function(player) {
     .then(player => {
       return player.rows[0];
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
+      throw err; // Re-throw the error to be caught and handled on the frontend
     });
 };
 
