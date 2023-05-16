@@ -4,9 +4,9 @@ import TableList from "./components/TableList";
 import useAppData from "./components/hooks/useAppData";
 import "./App.scss";
 
-const App = function() {
-
+const App = function () {
   const { state } = useAppData();
+
   return (
     <main className="App">
       <div>
