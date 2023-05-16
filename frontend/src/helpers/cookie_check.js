@@ -24,5 +24,5 @@ const cookieCheck = (cookieName) => {
   }
   return null;
 };
-
+ 
 module.exports = { cookieCheck, setCookie };
