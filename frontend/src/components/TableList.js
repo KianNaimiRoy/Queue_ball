@@ -5,18 +5,23 @@ import "./TableList.scss";
 import TableListItem from "./TableListItem";
 
 const TableList = function (props) {
-  const [tables, setTables] = useState([]);
+  // const [tables, setTables] = useState([]);
+
+  const [state, setState] = useState({
+    focus: null,
+    tables: []
+  });
 
   useEffect(() => {
     axios.get("/api/players/count").then((response) => {
       console.log("Response.data: ", response.data.count);
-      setTables(response.data.count);
+      setState({ tables: response.data.count });
     });
   }, []);
 
-  console.log("Tables:", tables);
+  console.log("Tables:", state.tables);
 
-  const listTables = tables.map((table) => {
+  const listTables = state.tables.map((table) => {
     return (
       <TableListItem
         key={table.id}
