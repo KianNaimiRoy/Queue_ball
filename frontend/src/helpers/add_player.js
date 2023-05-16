@@ -1,11 +1,5 @@
 import axios from "axios";
-
-function randomString() {
-  const length = 6;
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
-}
+import { setCookie } from "./cookie_check";
 
 const addPlayer = function(name) {
   const player = {
@@ -18,15 +12,7 @@ const addPlayer = function(name) {
   return axios.post(`/api/players/`, player)
     .then(() => {
       console.log('Player added to DB');
-      //Give your user a cookie
-      //setting the cookie
-      localStorage.setItem(randomString(), JSON.stringify(player));
-
-      //retrieve cookie, get item from localStorage
-      const playerCookie = localStorage.getItem(randomString());
-
-      //parsed stringified object
-      const parsedPlayerCookie = JSON.parse(playerCookie);
+      setCookie(player);
     })
     .catch(err => {
       console.log('Error adding player:', err.message);
@@ -38,9 +24,8 @@ const addPlayer = function(name) {
       }
     });
 
-  //storing the client-cookie in the browser
-
-
 };
+
+
 
 export default addPlayer;

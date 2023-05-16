@@ -14,15 +14,5 @@ const useAppData = function() {
   
   return { players };
 };
-   
-// const handleSubmit = (event) => {
-//   event.preventDefault()
-
-//   return axios.post('/api/players', player)
-//     .then((response) => {
-
-//     })
-// }
-
 
 export default useAppData;
