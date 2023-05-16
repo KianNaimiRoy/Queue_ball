@@ -5,12 +5,11 @@ $table-list-border: black;
   display: flex;
   flex-direction: flex-wrap;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  // height: 100%;
+  width: 100vw;
   background-color: $table-list-background;
-  border: 2px solid $table-list-border;
   z-index: -1;
-  padding: 8rem 1rem;
+  padding: 8rem 0;
 }
