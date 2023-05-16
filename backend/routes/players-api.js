@@ -15,6 +15,17 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/count", (req, res) => {
+  playerQueries
+    .getPlayerCount()
+    .then((count) => {
+      res.json({ count });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 //get player/:id
 router.get("/:id", (req, res) => {
   const playerID = req.params.id;
