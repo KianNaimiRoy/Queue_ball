@@ -1,8 +1,8 @@
 INSERT INTO players(name, enqueued_at, is_admin, table_id)
-VALUES ('Booch Scootem', null, true, null),
-('Scooch Bootem', null, false, null),
-('Rick Dickles', null, false, null),
-('Bingo', null, false, null),
-('Bongo', null, false, null),
-('Bango', null, false, null),
-('Luigi', null, false, null);
+VALUES ('Booch Scootem', null, true, 1),
+('Scooch Bootem', null, false, 1),
+('Rick Dickles', null, false, 1),
+('Bingo', null, false, 2),
+('Bongo', null, false, 3),
+('Bango', null, false, 3),
+('Luigi', null, false, 4);
