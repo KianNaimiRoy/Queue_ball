@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navigation from "./components/Navigation";
 import UsernamePrompt from "./components/UsernamePrompt";
 import TableList from "./components/TableList";
-import QueueList from "./components/Table/QueueList";
+// import QueueList from "./components/Table/QueueList";
 import useAppData from "./components/hooks/useAppData";
 import "./App.scss";
 
@@ -23,8 +23,8 @@ const App = function (props) {
       />
       <div>{prompt && <UsernamePrompt onClose={togglePrompt} />}</div>
       <Navigation />
-      {/* <TableList /> */}
-      <QueueList />
+      <TableList />
+      {/* <QueueList /> */}
     </main>
   );
 };
