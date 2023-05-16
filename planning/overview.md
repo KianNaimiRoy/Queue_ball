@@ -24,7 +24,7 @@ day 1 (Friday) Planning
 day 2 (Saturday) Planning
 Day 3 (Sunday) Initialize project! -> Create front and back end! -> Boilerplate code! -> Create routes!
 Day 4 (Monday) 
- 1. Write table routes/helper functions -> Kian and Xy
+ 1. Write table routes/helper functions -> Kian and Xy !
  2. basic HTML for index page and table page -> Adam 
  3. tie front end to back end -> maybe all of us?
  
