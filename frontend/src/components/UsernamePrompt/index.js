@@ -1,11 +1,12 @@
 import React from "react";
 import UsernamePopup from "./UsernamePopup";
 
-const UsernamePrompt = function() {
+const UsernamePrompt = function(props) {
 
   return (
     <>
-      <UsernamePopup />
+      <UsernamePopup 
+      onClose={props.onClose}/>
     </>
   );
 };
