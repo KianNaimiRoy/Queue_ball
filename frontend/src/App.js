@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Navigation from "./components/Navigation";
 import UsernamePrompt from "./components/UsernamePrompt";
 import TableList from "./components/TableList";
+// import QueueList from "./components/Table/QueueList";
 import useAppData from "./components/hooks/useAppData";
 import { setCookie } from "./helpers/cookie_check";
 import "./App.scss";
 
-
-const App = function(props) {
+const App = function (props) {
   const { state } = useAppData();
   const [prompt, setPrompt] = useState(true);
 
@@ -17,17 +17,15 @@ const App = function(props) {
 
   return (
     <main className="App">
-      <input type="button"
+      <input
+        type="button"
         value="Click to Open Prompt"
         onClick={togglePrompt}
       />
-      <div>
-        {prompt && <UsernamePrompt
-          onClose={togglePrompt}
-        />}
-      </div>
+      <div>{prompt && <UsernamePrompt onClose={togglePrompt} />}</div>
       <Navigation />
       <TableList />
+      {/* <QueueList /> */}
     </main>
   );
 };
