@@ -39,7 +39,7 @@ const Form = function(props) {
       <section className="user-handle-validation">{error}</section>
 
       <section className="rackem">
-        <Button rackem onClick={() => validate(player)}>Rack 'Em Up</Button>
+        <Button rackem onClick={() => {validate(player); props.onClose()}}>Rack 'Em Up</Button>
       </section>
     </main>
   );

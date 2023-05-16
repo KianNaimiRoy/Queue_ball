@@ -5,13 +5,14 @@ import Form from './Form';
 
 
 const UsernamePopup = function(props) {
-
   return (
     <main>
       <div className="pop-up">
         <div className="pop-up-box">
           <span className="close-icon" onClick={props.onClose}>x</span>
-            <Form />
+            <Form 
+            onClose={props.onClose}
+            />
         </div>
       </div>
     </main>
