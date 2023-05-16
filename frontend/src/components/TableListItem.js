@@ -1,10 +1,15 @@
 import "./TableListItem.scss";
+import classNames from "classnames";
 
 const TableListItem = function (props) {
+  const listClass = classNames("table-list__item", {
+    "table-list__unavailable": !props.status
+  });
+
   return (
-    <div className="table-list-item">
+    <div className={listClass}>
       <h1>Table {props.id}</h1>
-      <p>{props.count}</p>
+      <p>{!props.status ? "Unavailable" : props.count}</p>
     </div>
   );
 };
