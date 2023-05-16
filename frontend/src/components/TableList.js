@@ -5,22 +5,36 @@ import "./TableList.scss";
 import TableListItem from "./TableListItem";
 
 const TableList = function (props) {
-  // const [tables, setTables] = useState([]);
-
   const [state, setState] = useState({
-    focus: null,
+    focused: null,
     tables: []
   });
 
   useEffect(() => {
+    if (!state.focused) {
+      localStorage.setItem("focused", JSON.stringify(state.focused));
+    }
+    const focused = JSON.parse(localStorage.getItem("focused"));
+
     axios.get("/api/players/count").then((response) => {
       console.log("Response.data: ", response.data.count);
       setState({ tables: response.data.count });
     });
+
+    if (focused) {
+      setState({ ...state, focused });
+    }
+    console.log("Local Storage Focused: ", focused);
   }, []);
 
-  console.log("Tables:", state.tables);
+  const selectTable = function (id) {
+    setState((previousState) => ({
+      focused: previousState.focused !== null ? null : id
+    }));
+  };
 
+  console.log("State Tables: ", state.tables);
+  console.log("State Focus: ", state.focused);
   const listTables = state.tables.map((table) => {
     return (
       <TableListItem
@@ -28,6 +42,7 @@ const TableList = function (props) {
         id={table.id}
         count={table.players}
         status={table.is_available}
+        onSelect={() => selectTable(table.id)}
       />
     );
   });
