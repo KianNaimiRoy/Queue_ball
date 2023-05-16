@@ -7,19 +7,21 @@ const setCookie = (player) => {
     return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
   }
   //Give your user a cookie
-  const cookieName = randomString();
+  // const cookieName = randomString();
   //setting the cookie
-  localStorage.setItem(cookieName, JSON.stringify(player));
+  localStorage.setItem('player-data', JSON.stringify(player));
 
   //retrieve cookie, get item from localStorage
-  const playerCookie = localStorage.getItem(cookieName);
-
+  const playerCookie = localStorage.getItem('player-data');
+  
   return playerCookie;
 };
 
 //check if cookie exist
-const cookieCheck = (cookieName) => {
-  if (localStorage[cookieName]) {
+const cookieCheck = () => {
+  const value = localStorage.getItem('player-data')
+  if (value) {
+    console.log('Cookie exists', value)
     return true;
   }
   return null;
