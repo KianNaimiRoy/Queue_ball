@@ -7,7 +7,7 @@ const TableListItem = function (props) {
   });
 
   return (
-    <div className={listClass}>
+    <div className={listClass} onClick={props.onSelect}>
       <h1>Table {props.id}</h1>
       <p>{!props.status ? "Unavailable" : props.count}</p>
     </div>
