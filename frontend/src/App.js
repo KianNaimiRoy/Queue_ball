@@ -6,6 +6,7 @@ import useAppData from "./components/hooks/useAppData";
 import { setCookie } from "./helpers/cookie_check";
 import "./App.scss";
 
+
 const App = function(props) {
   const { state } = useAppData();
   const [prompt, setPrompt] = useState(true);
