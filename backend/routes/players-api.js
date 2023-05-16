@@ -81,8 +81,15 @@ router.post("/", (req, res) => {
       console.log("New player added", player);
       res.send(player);
     })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
+    .catch(err => {
+      if (err.code === '23505') {
+        // Unique constraint violation error
+        res.status(400).send('Name already in use');
+      } else {
+        // Other errors
+        console.log(err);
+        res.status(500).send('An error occurred while adding the player.');
+      }
     });
 });
 

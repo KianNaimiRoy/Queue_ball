@@ -4,14 +4,15 @@ import UsernamePrompt from "./components/UsernamePrompt";
 import TableList from "./components/TableList";
 // import QueueList from "./components/Table/QueueList";
 import useAppData from "./components/hooks/useAppData";
+import { setCookie } from "./helpers/cookie_check";
 import "./App.scss";
 
 const App = function (props) {
   const { state } = useAppData();
-  const [prompt, setIsPrompted] = useState(true);
+  const [prompt, setPrompt] = useState(true);
 
   const togglePrompt = () => {
-    setIsPrompted(!prompt);
+    setPrompt(!prompt);
   };
 
   return (

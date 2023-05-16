@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './UsernamePopup.scss';
 import Form from './Form';
 
+
+
 const UsernamePopup = function(props) {
+
   return (
     <main>
       <div className="pop-up">

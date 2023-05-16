@@ -24,11 +24,15 @@ day 1 (Friday) Planning
 day 2 (Saturday) Planning
 Day 3 (Sunday) Initialize project! -> Create front and back end! -> Boilerplate code! -> Create routes!
 Day 4 (Monday) 
- 1. Write table routes/helper functions -> Kian and Xy !
- 2. basic HTML for index page and table page -> Adam 
- 3. tie front end to back end -> maybe all of us?
- 
-Day 5 (Tuesday) Hopefully(basic, non-websocket functionality is complete by EOD)
+ 1. Write table routes/helper functions -> Kian and Xy 
+ 2. Basic HTML for index page and table page -> Adam 
+ 3. Tie front end to back end -> maybe all of us?
+Day 5 (Tuesday) 
+ 1. Render players on table component page
+ 2. Remove popup and set cookie when player enters name
+ 3. Inplement a .catch error for trying to add an existing name to database and render to page
+ 4. Get focus mode to work
+
 Day 6 (Wednesday)
 Day 7 (Thursday)
 Day 8 (Friday)
