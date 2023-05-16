@@ -1,16 +1,22 @@
 import Navigation from "./components/Navigation";
-import UserPrompt from './Username_Prompt';
+import UsernamePrompt from "./components/UsernamePrompt";
 import TableList from "./components/TableList";
+import useAppData from "./components/hooks/useAppData"
 import "./App.scss";
 
-function App() {
+const App = function() {
+
+  const { state } = useAppData()
+
   return (
-    <div className="App">
+    <main className="layout">
+      <div>
+        <UsernamePrompt />
+      </div>
       <Navigation />
-      <UserPrompt />
       <TableList />
-    </div>
+    </main>
   );
-}
+};
 
 export default App;
