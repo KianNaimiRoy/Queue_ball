@@ -26,7 +26,7 @@ const App = function(props) {
         />}
       </div>
       <Navigation />
-      {!setCookie ? <UsernamePrompt /> : <TableList />}
+      <TableList />
     </main>
   );
 };
