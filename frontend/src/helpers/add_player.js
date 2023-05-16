@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setCookie } from "./cookie_check";
+import { setSession} from "./session_check";
 
 const addPlayer = function(name) {
   const player = {
@@ -12,7 +12,7 @@ const addPlayer = function(name) {
   return axios.post(`/api/players/`, player)
     .then(() => {
       console.log('Player added to DB');
-      setCookie(player);
+      setSession(player);
     })
     .catch(err => {
       console.log('Error adding player:', err.message);
