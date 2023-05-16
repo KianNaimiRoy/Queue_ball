@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import "./Form.scss";
 import Button from "../Button";
 import "../Button.scss";
+import addPlayer from "../../helpers/add_player";
 
 const Form = function(props) {
   const [player, setPlayer] = useState(props.player || "");
   const [error, setError] = useState("");
 
-  const validate = function () {
+  const validate = function(player) {
     if (player === "") {
       setError("Player name cannot be blank");
-      console.log("ERROR:::", error)
       return;
     }
     setError("");
-    props.onSave(player);
+    addPlayer(player);
   };
 
   return (
@@ -35,11 +35,11 @@ const Form = function(props) {
       </section>
       <section className="user-handle-validation">{error}</section>
 
-        <section className="rackem">
-          <Button rackem onClick={validate}>Rack 'Em Up</Button>
-        </section>
+      <section className="rackem">
+        <Button rackem onClick={() => validate(player)}>Rack 'Em Up</Button>
+      </section>
     </main>
   );
-}
+};
 
 export default Form;

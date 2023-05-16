@@ -1,28 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 const useAppData = function() {
-  const [state, setState] = useState({
-    name: "",
-    enqueued_at: null,
-    is_admin: false,
-    table_id: null
-  });
+   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/players')
-      .then(players => {
-        console.log("PLAYERS:", players)
+    axios.get("/api/players")
+      .then(response => {
+        // console.log('PLAYERS', response.data.players);
+        setPlayers({players: response.data.players});
       });
   }, []);
-
-  return { state }
+  
+  return { players };
 };
-
-
-
-
+   
 // const handleSubmit = (event) => {
 //   event.preventDefault()
 
