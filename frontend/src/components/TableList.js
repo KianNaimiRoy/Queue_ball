@@ -8,16 +8,22 @@ const TableList = function (props) {
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/tables").then((response) => {
-      console.log("Response.data: ", response.data.tables);
-      setTables(response.data.tables);
+    axios.get("/api/players/count").then((response) => {
+      console.log("Response.data: ", response.data.count);
+      setTables(response.data.count);
     });
   }, []);
 
   console.log("Tables:", tables);
 
   const listTables = tables.map((table) => {
-    return <TableListItem key={table.id} id={table.id} name={table.name} />;
+    return (
+      <TableListItem
+        key={table.table_id}
+        id={table.table_id}
+        count={table.count}
+      />
+    );
   });
 
   return <div className="table-list">{listTables}</div>;
