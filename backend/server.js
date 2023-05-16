@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(cors());
 
 const playerApiRoutes = require("./routes/players-api");
 const tableApiRoutes = require("./routes/tables-api");
