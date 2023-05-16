@@ -3,7 +3,6 @@ import './UsernamePopup.scss';
 import Form from './Form';
 
 
-
 const UsernamePopup = function(props) {
   return (
     <main>

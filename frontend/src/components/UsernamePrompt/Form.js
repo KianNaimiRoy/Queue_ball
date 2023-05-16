@@ -17,7 +17,8 @@ const Form = function(props) {
     }
     setError("");
     addPlayer(player);
-    props.onClose()
+    props.onClose();
+    cookieCheck();
   };
 
 
