@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState }from "react";
 import UsernamePopup from "./UsernamePopup";
-import TableList from "../TableList";
-import { cookieCheck } from "../../helpers/cookie_check";
-
+import { sessionCheck } from "../../helpers/session_check";
 const UsernamePrompt = function(props) {
+  const inSession = sessionCheck()
 
   return (
     <>
-      <UsernamePopup
+      {!inSession && <UsernamePopup
         onClose={props.onClose}
-      />
+      />}
     </>
   );
 };
