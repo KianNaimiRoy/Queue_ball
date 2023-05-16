@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setCookie } from "./cookie_check";
+import { setCookie} from "./cookie_check";
 
 const addPlayer = function(name) {
   const player = {
