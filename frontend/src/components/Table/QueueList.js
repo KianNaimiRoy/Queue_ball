@@ -17,8 +17,7 @@ const QueueList = function(props) {
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
-      const players = response.data.players;
-      setPlayers(players);
+      setPlayers(response.data.players);
     });
 
     const socket = io("http://localhost:3000/");
@@ -33,25 +32,17 @@ const QueueList = function(props) {
 
     //initial send to the server
     socket.emit("test", "Hello World");
-
-    //send list of players to the server
-    socket.emit("players-list", players);
-    console.log("Initial players list", players);
+    console.log("Hello World");
 
     //clean up  to prevent memory leak
     return () => socket.disconnect();
   }, []);
 
-
-  // console.log("Players:", players);
-
   const listPlayers = players.map((player) => {
     return <QueueListItem key={player.id} id={player.id} name={player.name} />;
   });
-
-
-
-  return <div className="queue-list">{listPlayers}</div>;
+  
+  return <div className="queue-list">{listPlayers}</div>
 };
 
 export default QueueList;

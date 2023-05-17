@@ -37,9 +37,10 @@ io.on("connection", (client) => {
     console.log(data)
   });
 
-  //receive the list of players from client
-  client.on("players-list", (players) => {
-    console.log(players) 
+  //get the list of players from the client
+  client.on("players-enquequed", (data) => {
+    console.log("players-enquequed", data)
+    io.emit("public", data)
   })
 
 
