@@ -46,13 +46,10 @@ io.on("connection", (client) => {
     io.emit("public", player);
   });
 
-
-
   client.on("disconnect", (reason) => {
     console.log("Disconnected: ", reason);
   });
 });
-
 
 
 server.listen(PORT, (err) => {
