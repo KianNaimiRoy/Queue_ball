@@ -11,30 +11,34 @@ const TableList = function (props) {
   });
 
   useEffect(() => {
-    if (!state.focused) {
-      localStorage.setItem("focused", JSON.stringify(state.focused));
-    }
-    const focused = JSON.parse(localStorage.getItem("focused"));
+    const focused = JSON.stringify(localStorage.getItem("focused"));
 
     axios.get("/api/players/count").then((response) => {
-      console.log("Response.data: ", response.data.count);
-      setState({ tables: response.data.count });
+      setState((prevState) => ({ ...prevState, tables: response.data.count }));
     });
 
     if (focused) {
-      setState({ ...state, focused });
+      // localStorage.setItem("focused", JSON.stringify(state.focused));
+      setState((prevState) => ({ ...prevState, focused }));
+    } else {
+      localStorage.setItem("focused", JSON.stringify(state.focused));
     }
-    console.log("Local Storage Focused: ", focused);
+
+    console.log("Local storage focused", focused);
   }, []);
 
   const selectTable = function (id) {
-    setState((previousState) => ({
-      focused: previousState.focused !== null ? null : id
-    }));
+    setState((prevState) => {
+      const newFocused = prevState.focused !== null ? null : id;
+      localStorage.setItem("focused", JSON.stringify(newFocused));
+      return {
+        ...prevState,
+        focused: newFocused
+      };
+    });
+    console.log("Focused State: ", state.focused);
   };
 
-  console.log("State Tables: ", state.tables);
-  console.log("State Focus: ", state.focused);
   const listTables = state.tables.map((table) => {
     return (
       <TableListItem
