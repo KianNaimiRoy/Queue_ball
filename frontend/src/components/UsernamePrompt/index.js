@@ -3,16 +3,9 @@ import UsernamePopup from "./UsernamePopup";
 import { sessionCheck } from "../../helpers/session_check";
 
 
-const UsernamePrompt = function(props) {
-  const inSession = sessionCheck()
 
-  return (
-    <>
-      {!inSession && <UsernamePopup
-        onClose={props.onClose}
-      />}
-    </>
-  );
+const UsernamePrompt = function (props) {
+  const inSession = sessionCheck();
 };
 
 export default UsernamePrompt;

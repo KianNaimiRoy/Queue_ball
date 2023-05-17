@@ -7,9 +7,7 @@ $table-list-border: black;
   flex-wrap: wrap;
   justify-content: center;
   min-height: 100vh;
-  // height: 100%;
   width: 100vw;
   background-color: $table-list-background;
-  z-index: -1;
   padding: 8rem 0;
 }

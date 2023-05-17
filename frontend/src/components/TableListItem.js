@@ -6,8 +6,12 @@ const TableListItem = function (props) {
     "table-list__unavailable": !props.status
   });
 
+  // const clickMe = function (id) {
+  //   console.log(`Clicked Table ${id}`);
+  // };
+
   return (
-    <div className={listClass}>
+    <div className={listClass} onClick={props.onSelect}>
       <h1>Table {props.id}</h1>
       <p>{!props.status ? "Unavailable" : props.count}</p>
       
