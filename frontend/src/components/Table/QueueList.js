@@ -16,6 +16,7 @@ const QueueList = function(props) {
 
     const socket = io("http://localhost:3000/");
     setSocket(socket);
+    
 
     socket.on("connect", () => {
       console.log("Connected", socket.id);
@@ -28,6 +29,7 @@ const QueueList = function(props) {
 
     socket.on("public", (player) => {
       console.log(`Player ${player} just joined the queque!`)
+
     })
 
     //clean up  to prevent memory leak
@@ -39,7 +41,10 @@ const QueueList = function(props) {
   });
 
   const joinQueue = () => {
-    socket.emit("player-name", players[3].name)
+    const playerInSession = localStorage.getItem("player-data")
+    const playerName = JSON.parse(playerInSession).name
+   
+    socket.emit("player-name", playerName)
   }
 
   return (
