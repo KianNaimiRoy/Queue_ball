@@ -39,12 +39,8 @@ io.on("connection", (client) => {
 
   client.on("player-name", (player) => {
     console.log(`Player ${player} has joined the queque`);
+    io.emit("public", player)
   })
-
-
-
-
-
 
   client.on("disconnect", (reason) => {
     console.log("Disconnected: ", reason);
