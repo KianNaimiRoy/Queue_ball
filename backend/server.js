@@ -32,15 +32,6 @@ app.use("/api/tables", tableApiRoutes);
 io.on("connection", (client) => {
   console.log("Client connected: ", client.id);
 
-  //initial data received from client
-  client.on("test", (data) => {
-    console.log(data);
-
-    client.on("initial-players", (players) => {
-      console.log("Players", players);
-    });
-  });
-
   client.on("player-name", (player) => {
     console.log(`Player ${player} has joined the queque`);
     io.emit("public", player);
