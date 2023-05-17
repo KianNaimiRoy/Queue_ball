@@ -3,18 +3,10 @@ import { io } from "socket.io-client";
 import axios from "axios";
 import "./QueueList.scss";
 import QueueListItem from "./QueueListItem";
-import Form from "../UsernamePrompt/Form";
 
 const QueueList = function(props) {
   const [players, setPlayers] = useState([]);
   const [socket, setSocket] = useState();
-
-  // useEffect(() => {
-  //   axios.get("/api/players").then((response) => {
-  //     console.log("Response.data: ", response.data.players);
-  //     setPlayers(response.data.players);
-  //   });
-  // }, []);
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
@@ -34,6 +26,9 @@ const QueueList = function(props) {
       setTimeout(() => socket.connect(), 5000);
     });
 
+    socket.on("public", (player) => {
+      console.log(`Player ${player} just joined the queque!`)
+    })
 
     //clean up  to prevent memory leak
     return () => socket.disconnect();
@@ -49,11 +44,11 @@ const QueueList = function(props) {
 
   return (
     <section>
-      {/* <div className="queue-list">
+      <div className="queue-list">
         {listPlayers}
-      </div> */}
-      <div>
-        <button type="submit" className="player-name-input" onClick={joinQueue}>Join the Queue</button>
+      <div className="queue-list-item">
+        <button type="submit" onClick={joinQueue}>Join the Queue</button>
+      </div>
       </div>
     </section>
   );
