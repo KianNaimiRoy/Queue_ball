@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import axios from "axios";
 import "./QueueList.scss";
 import QueueListItem from "./QueueListItem";
+import Form from "../UsernamePrompt/Form";
 
 const QueueList = function(props) {
   const [players, setPlayers] = useState([]);
@@ -17,7 +18,8 @@ const QueueList = function(props) {
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
-      setPlayers(response.data.players);
+      const players = response.data.players
+      setPlayers(players);
     });
 
     const socket = io("http://localhost:3000/");
@@ -25,14 +27,13 @@ const QueueList = function(props) {
 
     socket.on("connect", () => {
       console.log("Connected", socket.id);
+      //initial send to the server
+      socket.emit("test", "Hello World");
     });
     socket.on("connected_error", () => {
       setTimeout(() => socket.connect(), 5000);
     });
 
-    //initial send to the server
-    socket.emit("test", "Hello World");
-    console.log("Hello World");
 
     //clean up  to prevent memory leak
     return () => socket.disconnect();
@@ -41,8 +42,21 @@ const QueueList = function(props) {
   const listPlayers = players.map((player) => {
     return <QueueListItem key={player.id} id={player.id} name={player.name} />;
   });
-  
-  return <div className="queue-list">{listPlayers}</div>
+
+  const joinQueue = () => {
+    socket.emit("player-name", players[3].name)
+  }
+
+  return (
+    <section>
+      {/* <div className="queue-list">
+        {listPlayers}
+      </div> */}
+      <div>
+        <button type="submit" className="player-name-input" onClick={joinQueue}>Join the Queue</button>
+      </div>
+    </section>
+  );
 };
 
 export default QueueList;
