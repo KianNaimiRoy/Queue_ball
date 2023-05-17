@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./TableList.scss";
 import TableListItem from "./TableListItem";
+import classNames from "classnames";
 
 const TableList = function (props) {
   const [state, setState] = useState({
@@ -28,19 +29,28 @@ const TableList = function (props) {
     console.log("Focused State: ", state.focused);
   }, [state.focused]);
 
-  const listTables = state.tables.map((table) => {
+  const tableClasses = classNames("table-list", {
+    "table-list__focused": state.focused
+  });
+
+  const listTables = (
+    state.focused
+      ? state.tables.filter((table) => state.focused === table.id)
+      : state.tables
+  ).map((table) => {
     return (
       <TableListItem
         key={table.id}
         id={table.id}
         count={table.players}
         status={table.is_available}
+        focused={state.focused}
         onSelect={() => selectTable(table.id)}
       />
     );
   });
 
-  return <div className="table-list">{listTables}</div>;
+  return <div className={tableClasses}>{listTables}</div>;
 };
 
 export default TableList;
