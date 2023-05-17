@@ -17,7 +17,6 @@ const TableListItem = function (props) {
 
   const listPlayers = players
     .filter((players) => props.focused === players.table_id)
-    .sort((a, b) => a.enqueued_at - b.enqueued_at)
     .map((player) => {
       return (
         <QueueListItem key={player.id} id={player.id} name={player.name} />
