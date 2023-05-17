@@ -1,6 +1,10 @@
 $table-list-background: rgb(255, 172, 255);
 $table-list-border: black;
 
+$table-list-item-background: rgb(146, 255, 146);
+$table-list-item-border: black;
+$unavailable: rgb(255, 96, 96);
+
 .table-list {
   display: flex;
   flex-direction: flex-wrap;
@@ -9,5 +13,38 @@ $table-list-border: black;
   min-height: 100vh;
   width: 100vw;
   background-color: $table-list-background;
-  padding: 8rem 0;
+  padding: 8rem 0 0 0;
+}
+
+.table-list {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border: 2px solid $table-list-item-border;
+    background-color: $table-list-item-background;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+  &__unavailable {
+    background-color: $unavailable;
+  }
+}
+
+p {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.table-list__focused .table-list__item {
+  width: 90vw;
+  height: 90vh;
+}
+
+.dashboard--focused {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
