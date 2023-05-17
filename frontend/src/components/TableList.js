@@ -44,6 +44,7 @@ const TableList = function (props) {
         id={table.id}
         count={table.players}
         status={table.is_available}
+        focused={state.focused}
         onSelect={() => selectTable(table.id)}
       />
     );
