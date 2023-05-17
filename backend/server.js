@@ -31,6 +31,7 @@ app.use("/api/tables", tableApiRoutes);
 //socket io connection, front end runs on a different url
 io.on("connection", (client) => {
   console.log("Client connected: ", client.id);
+  const socketID = client.id;
 
   //initial data received from client
   client.on("test", (data) => {
@@ -39,14 +40,13 @@ io.on("connection", (client) => {
 
   client.on("player-name", (player) => {
     console.log(`Player ${player} has joined the queque`);
-    io.emit("public", player)
-  })
+    io.emit("public", player);
+  });
 
   client.on("disconnect", (reason) => {
     console.log("Disconnected: ", reason);
   });
 });
-
 
 
 
