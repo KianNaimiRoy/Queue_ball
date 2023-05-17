@@ -1,45 +1,43 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import "./TableList.scss";
 import TableListItem from "./TableListItem";
+import classNames from "classnames";
 
 const TableList = function (props) {
   const [state, setState] = useState({
-    focused: null,
+    focused: JSON.parse(localStorage.getItem("focused")),
     tables: []
   });
 
   useEffect(() => {
-    const focused = JSON.stringify(localStorage.getItem("focused"));
-
     axios.get("/api/players/count").then((response) => {
       setState((prevState) => ({ ...prevState, tables: response.data.count }));
     });
-
-    if (focused) {
-      // localStorage.setItem("focused", JSON.stringify(state.focused));
-      setState((prevState) => ({ ...prevState, focused }));
-    } else {
-      localStorage.setItem("focused", JSON.stringify(state.focused));
-    }
-
-    console.log("Local storage focused", focused);
   }, []);
 
   const selectTable = function (id) {
-    setState((prevState) => {
-      const newFocused = prevState.focused !== null ? null : id;
-      localStorage.setItem("focused", JSON.stringify(newFocused));
-      return {
-        ...prevState,
-        focused: newFocused
-      };
-    });
-    console.log("Focused State: ", state.focused);
+    const newFocused = state.focused !== id ? id : null;
+    localStorage.setItem("focused", JSON.stringify(newFocused));
+    setState((prevState) => ({
+      ...prevState,
+      focused: newFocused
+    }));
   };
 
-  const listTables = state.tables.map((table) => {
+  useEffect(() => {
+    console.log("Focused State: ", state.focused);
+  }, [state.focused]);
+
+  const tableClasses = classNames("table-list", {
+    "table-list__focused": state.focused
+  });
+
+  const listTables = (
+    state.focused
+      ? state.tables.filter((table) => state.focused === table.id)
+      : state.tables
+  ).map((table) => {
     return (
       <TableListItem
         key={table.id}
@@ -51,7 +49,7 @@ const TableList = function (props) {
     );
   });
 
-  return <div className="table-list">{listTables}</div>;
+  return <div className={tableClasses}>{listTables}</div>;
 };
 
 export default TableList;

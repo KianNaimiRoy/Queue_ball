@@ -1,4 +1,4 @@
-import "./TableListItem.scss";
+// import "./TableListItem.scss";
 import classNames from "classnames";
 
 const TableListItem = function (props) {
