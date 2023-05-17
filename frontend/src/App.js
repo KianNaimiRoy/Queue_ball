@@ -21,7 +21,7 @@ const App = function (props) {
       />
       <div>{prompt && <UsernamePrompt onClose={togglePrompt} />}</div>
       <Navigation />
-      {/* <TableList /> */}
+      <TableList />
       <QueueList />
     </main>
   );
