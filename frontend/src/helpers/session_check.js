@@ -13,7 +13,6 @@ const setSession = (player) => {
 const sessionCheck = () => {
   const value = localStorage.getItem('player-data');
   if (value) {
-    console.log('Cookie exists', value);
     return true;
   }
   return false;
