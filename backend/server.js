@@ -6,6 +6,14 @@ const cors = require("cors");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
+const socketIo = require("socket.io");
+const http = require("http");
+const server = http.createServer(app);
+const io = socketIo(server, {
+  cors: {
+    origin: "http://localhost:8080/"
+  }
+});
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +27,31 @@ const tableApiRoutes = require("./routes/tables-api");
 app.use("/api/players", playerApiRoutes);
 app.use("/api/tables", tableApiRoutes);
 
-app.listen(PORT, () => {
+
+//socket io connection, front end runs on a different url
+io.on("connection", (client) => {
+  console.log("Client connected: ", client.id);
+
+  //initial data received from client
+  client.on("test", (data) => {
+    console.log(data)
+  });
+
+  //receive the list of players from client
+  client.on("players-list", (players) => {
+    console.log(players) 
+  })
+
+
+  client.on("disconnect", (reason) => {
+    console.log("Disconnected: ", reason);
+  });
+});
+
+
+
+
+server.listen(PORT, (err) => {
+  if (err) console.log('Error message: ', err);
   console.log(`Server listening on port: ${PORT}`);
 });
