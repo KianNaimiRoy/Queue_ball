@@ -7,6 +7,7 @@ import QueueListItem from "./QueueListItem";
 const QueueList = function(props) {
   const [players, setPlayers] = useState([]);
   const [socket, setSocket] = useState([]);
+  // const [playerName, setPLayerName] = useState('');
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
