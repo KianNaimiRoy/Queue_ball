@@ -4,7 +4,7 @@ const playerQueries = require("../db/queries/players");
 
 //get all players
 router.get("/", (req, res) => {
-  console.log("PLAYERS::");
+  console.log("PLAYERS:");
   playerQueries
     .getAllPlayers()
     .then((players) => {
