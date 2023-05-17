@@ -11,7 +11,6 @@ const addPlayer = function(name) {
 
   return axios.post(`/api/players/`, player)
     .then(() => {
-      console.log('Player added to DB');
       setSession(player);
     })
     .catch(err => {
