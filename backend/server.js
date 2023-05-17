@@ -34,14 +34,16 @@ io.on("connection", (client) => {
 
   //initial data received from client
   client.on("test", (data) => {
-    console.log(data)
+    console.log(data);
   });
 
-  //get the list of players from the client
-  client.on("players-enquequed", (data) => {
-    console.log("players-enquequed", data)
-    io.emit("public", data)
+  client.on("player-name", (player) => {
+    console.log(`Player ${player} has joined the queque`);
   })
+
+
+
+
 
 
   client.on("disconnect", (reason) => {
