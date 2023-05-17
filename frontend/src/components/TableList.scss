@@ -34,17 +34,17 @@ $unavailable: rgb(255, 96, 96);
   }
 }
 
-p {
+.table-list__item p {
   font-size: 3rem;
   font-weight: 700;
 }
 
 .table-list__focused .table-list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 90vw;
-  height: 90vh;
-}
-
-.dashboard--focused {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  height: 100%;
+  padding: 4rem 0;
 }

@@ -41,8 +41,8 @@ const getPlayerByID = function(id) {
 const enqueuePlayerByID = function(id, player) {
   return client
     .query(
-      "UPDATE players SET name = $1, enqueued_at = NOW(), table_id = $2 WHERE id = $3 RETURNING *",
-      [player.name, player.table_id, id]
+      "UPDATE players SET enqueued_at = NOW(), table_id = $1 WHERE id = $2 RETURNING *",
+      [player.table_id, id]
     )
     .then((player) => {
       return player.rows[0];
