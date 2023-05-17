@@ -6,7 +6,6 @@ import useAppData from "./components/hooks/useAppData";
 import "./App.scss";
 
 const App = function (props) {
-  const { state } = useAppData();
   const [prompt, setPrompt] = useState(true);
 
   const togglePrompt = () => {
@@ -22,7 +21,7 @@ const App = function (props) {
       />
       <div>{prompt && <UsernamePrompt onClose={togglePrompt}/>}</div>
       <Navigation />
-      <TableList />
+      <TableList/>
     </main>
   );
 };

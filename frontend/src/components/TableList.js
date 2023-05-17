@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import "./TableList.scss";
 import TableListItem from "./TableListItem";
 
-const TableList = function (props) {
+const TableList = function(props) {
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
