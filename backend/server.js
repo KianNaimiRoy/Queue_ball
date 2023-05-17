@@ -35,12 +35,18 @@ io.on("connection", (client) => {
   //initial data received from client
   client.on("test", (data) => {
     console.log(data);
+
+    client.on("initial-players", (players) => {
+      console.log("Players", players);
+    });
   });
 
   client.on("player-name", (player) => {
     console.log(`Player ${player} has joined the queque`);
     io.emit("public", player);
   });
+
+
 
   client.on("disconnect", (reason) => {
     console.log("Disconnected: ", reason);
