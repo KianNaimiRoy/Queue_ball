@@ -48,6 +48,10 @@ const TableListItem = function (props) {
     const playerObj = JSON.parse(playerInSession);
     playerObj.table_id = props.id 
     socket.emit("player-name", playerObj);
+    axios.patch("/api/players/enqueued", playerObj)
+    .then(()=>{
+      console.log("Player Enqueued!")
+    })
   };
 
 
