@@ -34,6 +34,10 @@ Day 5 (Tuesday)
  4. Get focus mode to work
 
 Day 6 (Wednesday)
+ 1. Implement Websockets for queue rendering
+ 2. Start some styling 
+ 3. Choose strech goals
+
 Day 7 (Thursday)
 Day 8 (Friday)
 Day 9 (Saturday)

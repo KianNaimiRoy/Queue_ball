@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Form.scss";
 import Button from "../Button";
 import "../Button.scss";
-import addPlayer from "../../helpers/add_player";
+import addPlayerToLocalStorage from "../../helpers/add_player";
 
 
 const Form = function(props) {
@@ -15,7 +15,7 @@ const Form = function(props) {
       return;
     }
     setError("");
-    addPlayer(player);
+    addPlayerToLocalStorage(player);
     props.onClose();
   };
 

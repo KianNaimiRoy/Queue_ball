@@ -40,12 +40,11 @@ router.get("/:id", (req, res) => {
 });
 
 //when a player joins the queue
-router.patch("/enqueued/:id", (req, res) => {
-  const playerID = req.params.id;
+router.patch("/enqueued", (req, res) => {
   const player = req.body;
 
   playerQueries
-    .enqueuePlayerByID(playerID, player)
+    .enqueuePlayerByID(player)
     .then((player) => {
       console.log("Edited player", player);
       res.send(player);

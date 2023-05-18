@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setSession} from "./session_check";
 
-const addPlayer = function(name) {
+const addPlayerToLocalStorage = function(name) {
   const player = {
     name: name,
     enqueued_at: null,
@@ -22,9 +22,8 @@ const addPlayer = function(name) {
         alert('An error occurred while adding the player.');
       }
     });
-
 };
 
 
 
-export default addPlayer;
+export default addPlayerToLocalStorage;
