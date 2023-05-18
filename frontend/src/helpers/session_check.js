@@ -18,7 +18,6 @@ const sessionCheck = () => {
   return false;
 };
 
-
 //clears player-data in localStorage
 const clearSession = () => {
   const playerInSession = localStorage.getItem('player-data');

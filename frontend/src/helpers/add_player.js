@@ -22,7 +22,6 @@ const addPlayer = function(name) {
         alert('An error occurred while adding the player.');
       }
     });
-
 };
 
 
