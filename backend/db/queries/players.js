@@ -38,11 +38,11 @@ const getPlayerByID = function(id) {
 };
 
 //add a player to the queue
-const enqueuePlayerByID = function(id, player) {
+const enqueuePlayerByID = function(player) {
   return client
     .query(
-      "UPDATE players SET enqueued_at = NOW(), table_id = $1 WHERE id = $2 RETURNING *",
-      [player.table_id, id]
+      "UPDATE players SET enqueued_at = NOW(), table_id = $1 WHERE name = $2 RETURNING *",
+      [player.table_id, player.name]
     )
     .then((player) => {
       return player.rows[0];
