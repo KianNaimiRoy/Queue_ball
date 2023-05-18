@@ -47,23 +47,27 @@ router.patch("/enqueued", (req, res) => {
     .enqueuePlayerByID(player)
     .then((player) => {
       console.log("Edited player", player);
-      res.send(player);
+      playerQueries.getPlayerCount().then((count) => {
+        console.log("Players-API Enqueue Count: ", count);
+        res.json({ count });
+      });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
 
-//when player leaves a queue
-router.patch("/dequeued/:id", (req, res) => {
-  const playerID = req.params.id;
+router.patch("/dequeued", (req, res) => {
   const player = req.body;
 
   playerQueries
-    .dequeuePlayerByID(playerID, player)
+    .dequeuePlayerByID(player)
     .then((player) => {
-      console.log("Dequeued player", player);
-      res.send(player);
+      console.log("Edited player", player);
+      playerQueries.getPlayerCount().then((count) => {
+        console.log("Players-API Dequeue Count: ", count);
+        res.json({ count });
+      });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -80,14 +84,14 @@ router.post("/", (req, res) => {
       console.log("New player added", player);
       res.send(player);
     })
-    .catch(err => {
-      if (err.code === '23505') {
+    .catch((err) => {
+      if (err.code === "23505") {
         // Unique constraint violation error
-        res.status(400).send('Name already in use');
+        res.status(400).send("Name already in use");
       } else {
         // Other errors
         console.log(err);
-        res.status(500).send('An error occurred while adding the player.');
+        res.status(500).send("An error occurred while adding the player.");
       }
     });
 });
