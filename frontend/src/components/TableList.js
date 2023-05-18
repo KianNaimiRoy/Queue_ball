@@ -25,9 +25,9 @@ const TableList = function (props) {
     }));
   };
 
-  useEffect(() => {
-    console.log("Focused State: ", state.focused);
-  }, [state.focused]);
+  const updateTables = function (tables) {
+    setState((prevState) => ({ ...prevState, tables: tables }));
+  };
 
   const tableClasses = classNames("table-list", {
     "table-list__focused": state.focused
@@ -46,6 +46,7 @@ const TableList = function (props) {
         status={table.is_available}
         focused={state.focused}
         onSelect={() => selectTable(table.id)}
+        updateTables={updateTables}
       />
     );
   });

@@ -27,7 +27,6 @@ const tableApiRoutes = require("./routes/tables-api");
 app.use("/api/players", playerApiRoutes);
 app.use("/api/tables", tableApiRoutes);
 
-
 //socket io connection, front end runs on a different url
 io.on("connection", (client) => {
   console.log("Client connected: ", client.id);
@@ -37,13 +36,21 @@ io.on("connection", (client) => {
     io.emit("public", player);
   });
 
+  client.on("dequeue", (player) => {
+    console.log(`Backend Dequeue Player: `, player);
+    io.emit("dequeue", player);
+  });
+
+  client.on("table-count", (tables) => {
+    io.emit("table-update", tables);
+  });
+
   client.on("disconnect", (reason) => {
     console.log("Disconnected: ", reason);
   });
 });
 
-
 server.listen(PORT, (err) => {
-  if (err) console.log('Error message: ', err);
+  if (err) console.log("Error message: ", err);
   console.log(`Server listening on port: ${PORT}`);
 });
