@@ -53,11 +53,11 @@ const enqueuePlayerByID = function(player) {
 };
 
 //remove player from the queue
-const dequeuePlayerByID = function(id, player) {
+const dequeuePlayerByID = function(player) {
   return client
     .query(
-      "UPDATE players SET name = $1, enqueued_at = null, table_id = null WHERE id = $2 RETURNING *",
-      [player.name, id]
+      "UPDATE players SET enqueued_at = null, table_id = null WHERE name = $1 RETURNING *",
+      [player.name]
     )
     .then((player) => {
       return player.rows[0];
