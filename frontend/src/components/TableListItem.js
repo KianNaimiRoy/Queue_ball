@@ -4,7 +4,8 @@ import axios from "axios";
 import classNames from "classnames";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
-import "./Table/QueueList.scss";
+// import "./TableListItem.scss"
+
 
 const TableListItem = function(props) {
   const [players, setPlayers] = useState([]);
