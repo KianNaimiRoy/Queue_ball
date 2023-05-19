@@ -4,8 +4,8 @@ import axios from "axios";
 import classNames from "classnames";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
-import "./Table/QueueList.scss";
 import "./TableListItem.scss";
+
 
 const TableListItem = function(props) {
   const [players, setPlayers] = useState([]);
@@ -58,8 +58,6 @@ const TableListItem = function(props) {
     <QueueListItem key={player.id} name={player.name} />
   ));
 
-  console.log("LIST PLAYERS::::", listPlayers);
-
   const joinQueue = () => {
     const playerObj = JSON.parse(localStorage.getItem("player-data"));
     playerObj.table_id = props.id;
@@ -100,9 +98,10 @@ const TableListItem = function(props) {
     <div className={listClass} onClick={props.onSelect}>
       {props.focused ? (
         <>
+          <h1>{props.name}</h1>
           <div className="current-match">
-              {firstPlayer}
-              {secondPlayer}
+            {firstPlayer}
+            {secondPlayer}
           </div>
           {remainingPlayerItems}
           {isTableIdNull ?
@@ -119,7 +118,7 @@ const TableListItem = function(props) {
                 Join the Queue
               </Button>
             </div>
-           : 
+            :
             <div>
               {props.id !== playerTableNumber && <h1>You are currently enqueued in Table {playerTableNumber}</h1>}
               {props.id === playerTableNumber && ( // check the table id and only render leave the queue button for that table
