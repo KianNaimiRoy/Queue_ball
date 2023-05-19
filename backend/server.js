@@ -31,9 +31,9 @@ app.use("/api/tables", tableApiRoutes);
 io.on("connection", (client) => {
   console.log("Client connected: ", client.id);
 
-  client.on("player-name", (player) => {
+  client.on("enqueue", (player) => {
     console.log(`Player ${player} has joined the queque`);
-    io.emit("public", player);
+    io.emit("enqueue", player);
   });
 
   client.on("dequeue", (player) => {
@@ -41,7 +41,7 @@ io.on("connection", (client) => {
     io.emit("dequeue", player);
   });
 
-  client.on("table-count", (tables) => {
+  client.on("table-update", (tables) => {
     io.emit("table-update", tables);
   });
 

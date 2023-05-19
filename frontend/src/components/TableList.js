@@ -12,7 +12,7 @@ const TableList = function (props) {
 
   useEffect(() => {
     axios.get("/api/players/count").then((response) => {
-      setState((prevState) => ({ ...prevState, tables: response.data.count }));
+      setState((prevState) => ({ ...prevState, tables: response.data.tables }));
     });
   }, []);
 
@@ -42,7 +42,8 @@ const TableList = function (props) {
       <TableListItem
         key={table.id}
         id={table.id}
-        count={table.players}
+        name={table.name}
+        playerCount={table.player_count}
         status={table.is_available}
         focused={state.focused}
         onSelect={() => selectTable(table.id)}

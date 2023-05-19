@@ -4,7 +4,6 @@ const playerQueries = require("../db/queries/players");
 
 //get all players
 router.get("/", (req, res) => {
-  console.log("PLAYERS:");
   playerQueries
     .getAllPlayers()
     .then((players) => {
@@ -18,8 +17,8 @@ router.get("/", (req, res) => {
 router.get("/count", (req, res) => {
   playerQueries
     .getPlayerCount()
-    .then((count) => {
-      res.json({ count });
+    .then((tables) => {
+      res.json({ tables });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -46,10 +45,8 @@ router.patch("/enqueued", (req, res) => {
   playerQueries
     .enqueuePlayerByID(player)
     .then((player) => {
-      console.log("Edited player", player);
-      playerQueries.getPlayerCount().then((count) => {
-        console.log("Players-API Enqueue Count: ", count);
-        res.json({ count });
+      playerQueries.getPlayerCount().then((tables) => {
+        res.json({ tables });
       });
     })
     .catch((err) => {
@@ -63,10 +60,8 @@ router.patch("/dequeued", (req, res) => {
   playerQueries
     .dequeuePlayerByID(player)
     .then((player) => {
-      console.log("Edited player", player);
-      playerQueries.getPlayerCount().then((count) => {
-        console.log("Players-API Dequeue Count: ", count);
-        res.json({ count });
+      playerQueries.getPlayerCount().then((tables) => {
+        res.json({ tables });
       });
     })
     .catch((err) => {
@@ -81,7 +76,6 @@ router.post("/", (req, res) => {
   playerQueries
     .addPlayer(newPlayer)
     .then((player) => {
-      console.log("New player added", player);
       res.send(player);
     })
     .catch((err) => {
