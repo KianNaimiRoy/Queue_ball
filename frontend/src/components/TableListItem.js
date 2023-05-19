@@ -9,6 +9,8 @@ import "./Table/QueueList.scss";
 const TableListItem = function(props) {
   const [players, setPlayers] = useState([]);
   const [socket, setSocket] = useState([]);
+  const [showCurrentlyIn, setShowCurrentlyIn] = useState(false);
+
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
@@ -57,6 +59,8 @@ const TableListItem = function(props) {
       console.log('Front End joinQueue Tables: ', response.data.tables);
       props.updateTables(response.data.tables);
     });
+
+    setShowCurrentlyIn(true);
   };
 
   const leaveQueue = () => {
@@ -65,10 +69,11 @@ const TableListItem = function(props) {
     localStorage.setItem("player-data", JSON.stringify(playerObj));
     socket.emit("dequeue", playerObj);
     axios.patch("/api/players/dequeued", playerObj)
-    .then((response) => {
-      socket.emit("table-update", response.data.tables);
-      props.updateTables(response.data.tables);
-    });
+      .then((response) => {
+        socket.emit("table-update", response.data.tables);
+        props.updateTables(response.data.tables);
+      });
+      setShowCurrentlyIn(false);
   };
 
   const listClass = classNames("table-list__item", {
@@ -81,12 +86,16 @@ const TableListItem = function(props) {
 
   return (
     <div className={listClass} onClick={props.onSelect}>
-      <h1>{props.name}</h1>
       {props.focused ? (
-        <>
+        <section>
+           {showCurrentlyIn ? (
+             <h1>You are currently in {props.name}</h1>
+             ) : (
+              <h1>{props.name}</h1>
+          )}
           {listPlayers}
           {isTableIdNull ?
-            <h1>
+            <div>
               <Button className="join"
                 join
                 type="submit"
@@ -98,8 +107,9 @@ const TableListItem = function(props) {
               >
                 Join the Queue
               </Button>
-            </h1> :
-            <h1>
+            </div> :
+            <div>
+
               <Button className="leave"
                 leave
                 type="submit"
@@ -111,10 +121,13 @@ const TableListItem = function(props) {
               >
                 Leave the Queue
               </Button>
-            </h1>}
-        </>
+            </div>}
+        </section>
       ) : (
+        <>
+        <h1>{props.name}</h1>
         <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+        </>
       )}
     </div>
   );
