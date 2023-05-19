@@ -91,10 +91,13 @@ const TableListItem = function(props) {
     ? JSON.parse(localStorage.getItem("player-data")).table_id === null
     : false;
 
+  //retrieve the table_id number that a player has joined
+  const playerTableNumber = localStorage.getItem("player-data")
+    ? JSON.parse(localStorage.getItem("player-data")).table_id
+    : null;
 
   return (
     <div className={listClass} onClick={props.onSelect}>
-      <h1>{props.name}</h1>
       {props.focused ? (
         <>
           <div className="current-match">
@@ -103,7 +106,7 @@ const TableListItem = function(props) {
           </div>
           {remainingPlayerItems}
           {isTableIdNull ?
-            <h1>
+            <div>
               <Button className="join"
                 join
                 type="submit"
@@ -115,23 +118,33 @@ const TableListItem = function(props) {
               >
                 Join the Queue
               </Button>
-            </h1> :
-            <h1>
-              <Button className="leave"
-                leave
-                type="submit"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  leaveQueue();
-                }}
-              >
-                Leave the Queue
-              </Button>
-            </h1>}
+            </div>
+           : 
+            <div>
+              {props.id !== playerTableNumber && <h1>You are currently enqueued in Table {playerTableNumber}</h1>}
+              {props.id === playerTableNumber && ( // check the table id and only render leave the queue button for that table
+                <Button
+                  leave
+                  className="leave"
+                  type="submit"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    leaveQueue();
+                  }}
+                >
+                  Leave the Queue
+                </Button>
+              )}
+            </div>
+          }
         </>
       ) : (
-        <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+        <>
+          <h1>{props.name}</h1>
+          <h3>Current Players in the Queue</h3>
+          <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+        </>
       )}
     </div>
   );

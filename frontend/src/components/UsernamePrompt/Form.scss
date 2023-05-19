@@ -1,10 +1,17 @@
-.player-name-input{
+.player-name-input {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  background-color: rgb(242, 225, 202);
-  height: 100%;
+  background-color:  #9ec28f;
+  resize: none;
+  outline: none;
+  width: 30vw;
+  border: 0;
+  border-color: #3D550C;
+  height: 4rem;
+  line-height: 1.5rem;
+  border-radius: 10px;
+  font-family: Georgia;
 }
-
