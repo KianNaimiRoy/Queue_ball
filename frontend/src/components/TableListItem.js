@@ -86,9 +86,9 @@ const TableListItem = function(props) {
 
   return (
     <div className={listClass} onClick={props.onSelect}>
-      <h1>{props.name}</h1>
       {props.focused ? (
         <>
+          <h1>{props.name}</h1>
           {listPlayers}
           {isTableIdNull ? (
             <div>
@@ -107,7 +107,7 @@ const TableListItem = function(props) {
             </div>
           ) : (
             <div>
-              {playerTableNumber && <h1>You are currently in Table: {playerTableNumber}</h1>}
+              {props.id !== playerTableNumber && <h1>You are currently enqueued in Table {playerTableNumber}</h1>}
               {props.id === playerTableNumber && ( // check the table id and only render leave the queue button for that table
                 <Button
                   leave
@@ -127,6 +127,7 @@ const TableListItem = function(props) {
         </>
       ) : (
         <>
+          <h1>{props.name}</h1>
           <h3>Current Players in the Queue</h3>
           <p>{!props.status ? "Unavailable" : props.playerCount}</p>
         </>
