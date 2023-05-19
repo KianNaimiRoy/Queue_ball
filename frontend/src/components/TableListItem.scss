@@ -24,3 +24,17 @@ p {
   font-size: 3rem;
   font-weight: 700;
 }
+
+.button--join {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+.button--leave{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+}
