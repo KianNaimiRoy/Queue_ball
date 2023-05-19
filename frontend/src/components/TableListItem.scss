@@ -25,16 +25,9 @@ p {
   font-weight: 700;
 }
 
-.button--join {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px;
+.current-match{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.button--leave{
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px;
-}

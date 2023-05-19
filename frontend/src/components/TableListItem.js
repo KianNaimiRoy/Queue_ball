@@ -5,6 +5,7 @@ import classNames from "classnames";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
 import "./Table/QueueList.scss";
+import "./TableListItem.scss";
 
 const TableListItem = function(props) {
   const [players, setPlayers] = useState([]);
@@ -42,10 +43,22 @@ const TableListItem = function(props) {
   }, []);
 
   const listPlayers = players
-    .filter((players) => props.focused === players.table_id)
-    .map((player) => {
-      return <QueueListItem key={player.id} name={player.name} />;
-    });
+    .filter((players) => props.focused === players.table_id);
+
+  const firstPlayer = listPlayers.length > 0 ? (
+    <QueueListItem key={listPlayers[0].id} name={listPlayers[0].name} className="player first-player" />
+  ) : null;
+
+  const secondPlayer = listPlayers.length > 1 ? (
+    <QueueListItem key={listPlayers[1].id} name={listPlayers[1].name} className="player second-player" />
+  ) : null;
+
+  const remainingPlayers = listPlayers.length > 2 ? listPlayers.slice(2) : [];
+  const remainingPlayerItems = remainingPlayers.map((player) => (
+    <QueueListItem key={player.id} name={player.name} />
+  ));
+
+  console.log("LIST PLAYERS::::", listPlayers);
 
   const joinQueue = () => {
     const playerObj = JSON.parse(localStorage.getItem("player-data"));
@@ -54,7 +67,6 @@ const TableListItem = function(props) {
     socket.emit("enqueue", playerObj);
     axios.patch("/api/players/enqueued", playerObj).then((response) => {
       socket.emit("table-update", response.data.tables);
-      console.log('Front End joinQueue Tables: ', response.data.tables);
       props.updateTables(response.data.tables);
     });
   };
@@ -65,10 +77,10 @@ const TableListItem = function(props) {
     localStorage.setItem("player-data", JSON.stringify(playerObj));
     socket.emit("dequeue", playerObj);
     axios.patch("/api/players/dequeued", playerObj)
-    .then((response) => {
-      socket.emit("table-update", response.data.tables);
-      props.updateTables(response.data.tables);
-    });
+      .then((response) => {
+        socket.emit("table-update", response.data.tables);
+        props.updateTables(response.data.tables);
+      });
   };
 
   const listClass = classNames("table-list__item", {
@@ -79,12 +91,17 @@ const TableListItem = function(props) {
     ? JSON.parse(localStorage.getItem("player-data")).table_id === null
     : false;
 
+
   return (
     <div className={listClass} onClick={props.onSelect}>
       <h1>{props.name}</h1>
       {props.focused ? (
         <>
-          {listPlayers}
+          <div className="current-match">
+              {firstPlayer}
+              {secondPlayer}
+          </div>
+          {remainingPlayerItems}
           {isTableIdNull ?
             <h1>
               <Button className="join"

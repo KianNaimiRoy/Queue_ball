@@ -11,8 +11,20 @@ $queue-list-item-border: black;
   background-color: $queue-list-item-background;
   border-radius: 1rem;
   margin: 1rem;
+  padding: 8px;
 }
 
 p {
   font-size: 4rem;
+}
+
+.player {
+  flex-basis: 50%;
+}
+
+.first-player{
+  background-color: goldenrod
+}
+.second-player{
+  background-color: silver;
 }
