@@ -65,10 +65,10 @@ const TableListItem = function(props) {
     localStorage.setItem("player-data", JSON.stringify(playerObj));
     socket.emit("dequeue", playerObj);
     axios.patch("/api/players/dequeued", playerObj)
-    .then((response) => {
-      socket.emit("table-update", response.data.tables);
-      props.updateTables(response.data.tables);
-    });
+      .then((response) => {
+        socket.emit("table-update", response.data.tables);
+        props.updateTables(response.data.tables);
+      });
   };
 
   const listClass = classNames("table-list__item", {
@@ -79,15 +79,21 @@ const TableListItem = function(props) {
     ? JSON.parse(localStorage.getItem("player-data")).table_id === null
     : false;
 
+  //retrieve the table_id number that a player has joined
+  const playerTableNumber = localStorage.getItem("player-data")
+    ? JSON.parse(localStorage.getItem("player-data")).table_id
+    : null;
+
   return (
     <div className={listClass} onClick={props.onSelect}>
       <h1>{props.name}</h1>
       {props.focused ? (
         <>
           {listPlayers}
-          {isTableIdNull ?
-            <h1>
-              <Button className="join"
+          {isTableIdNull ? (
+            <div>
+              <Button
+                className="join"
                 join
                 type="submit"
                 onClick={(event) => {
@@ -98,23 +104,32 @@ const TableListItem = function(props) {
               >
                 Join the Queue
               </Button>
-            </h1> :
-            <h1>
-              <Button className="leave"
-                leave
-                type="submit"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  leaveQueue();
-                }}
-              >
-                Leave the Queue
-              </Button>
-            </h1>}
+            </div>
+          ) : (
+            <div>
+              {playerTableNumber && <h1>You are currently in Table: {playerTableNumber}</h1>}
+              {props.id === playerTableNumber && ( // check the table id and only render leave the queue button for that table
+                <Button
+                  leave
+                  className="leave"
+                  type="submit"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    leaveQueue();
+                  }}
+                >
+                  Leave the Queue
+                </Button>
+              )}
+            </div>
+          )}
         </>
       ) : (
-        <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+        <>
+          <h3>Current Players in the Queue</h3>
+          <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+        </>
       )}
     </div>
   );
