@@ -11,7 +11,6 @@ const TableListItem = function (props) {
 
   useEffect(() => {
     axios.get("/api/players").then((response) => {
-      console.log("Response.data: ", response.data.players);
       setPlayers(response.data.players);
     });
 
@@ -25,13 +24,11 @@ const TableListItem = function (props) {
       setTimeout(() => socket.connect(), 5000);
     });
 
-    socket.on("public", (player) => {
-      console.log(`Player ${player.name} just joined the queue!`);
+    socket.on("enqueue", (player) => {
       setPlayers((prev) => [...prev, player]);
     });
 
     socket.on("dequeue", (player) => {
-      console.log(`Player ${player.name} has left the queue!`);
       setPlayers((prev) => prev.filter((p) => p.name !== player.name));
     });
 
@@ -53,10 +50,11 @@ const TableListItem = function (props) {
     const playerInSession = localStorage.getItem("player-data");
     const playerObj = JSON.parse(playerInSession);
     playerObj.table_id = props.id;
-    socket.emit("player-name", playerObj);
+    socket.emit("enqueue", playerObj);
     axios.patch("/api/players/enqueued", playerObj).then((response) => {
-      socket.emit("table-count", response.data.count);
-      props.updateTables(response.data.count);
+      socket.emit("table-update", response.data.tables);
+      console.log('Front End joinQueue Tables: ', response.data.tables)
+      props.updateTables(response.data.tables);
     });
   };
 
@@ -65,8 +63,8 @@ const TableListItem = function (props) {
     const playerObj = JSON.parse(playerInSession);
     socket.emit("dequeue", playerObj);
     axios.patch("/api/players/dequeued", playerObj).then((response) => {
-      socket.emit("table-count", response.data.count);
-      props.updateTables(response.data.count);
+      socket.emit("table-update", response.data.tables);
+      props.updateTables(response.data.tables);
     });
   };
 
@@ -76,7 +74,7 @@ const TableListItem = function (props) {
 
   return (
     <div className={listClass} onClick={props.onSelect}>
-      <h1>Table {props.id}</h1>
+      <h1>{props.name}</h1>
       {props.focused ? (
         <>
           {listPlayers}
@@ -106,7 +104,7 @@ const TableListItem = function (props) {
           </h1>
         </>
       ) : (
-        <p>{!props.status ? "Unavailable" : props.count}</p>
+        <p>{!props.status ? "Unavailable" : props.playerCount}</p>
       )}
     </div>
   );

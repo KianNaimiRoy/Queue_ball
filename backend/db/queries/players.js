@@ -15,7 +15,7 @@ const getAllPlayers = function() {
 const getPlayerCount = function() {
   return client
     .query(
-      "SELECT count(players.name) as players, pool_tables.* FROM players RIGHT JOIN pool_tables ON players.table_id = pool_tables.id GROUP BY pool_tables.id ORDER BY pool_tables.id;"
+      "SELECT count(players.name) as player_count, pool_tables.* FROM players RIGHT JOIN pool_tables ON players.table_id = pool_tables.id GROUP BY pool_tables.id ORDER BY pool_tables.id;"
     )
     .then((players) => {
       return players.rows;
