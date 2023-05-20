@@ -1,12 +1,11 @@
 import classNames from "classnames";
-
 import useTableListItem from "./hooks/useTableListItems";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
 
 import "./TableListItem.scss";
 
-const TableListItem = function (props) {
+const TableListItem = function(props) {
   const { players, joinQueue, leaveQueue, isTableIdNull, playerTableNumber } =
     useTableListItem(props);
 
@@ -51,8 +50,8 @@ const TableListItem = function (props) {
           <h1>{props.name}</h1>
           <div className="current-match">
             {firstPlayer}
-            {secondPlayer && 
-            <h1 id="vs"> VS. </h1>}
+            {secondPlayer &&
+              <h1 id="vs"> VS. </h1>}
             {secondPlayer}
           </div>
           {queue}
@@ -89,6 +88,7 @@ const TableListItem = function (props) {
                 >
                   Leave the Queue
                 </Button>
+
               )}
             </div>
           )}
