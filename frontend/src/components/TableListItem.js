@@ -6,7 +6,7 @@ import Button from "./Button";
 
 import "./TableListItem.scss";
 
-const TableListItem = function (props) {
+const TableListItem = function(props) {
   const { players, joinQueue, leaveQueue, isTableIdNull, playerTableNumber } =
     useTableListItem(props);
 
@@ -32,14 +32,13 @@ const TableListItem = function (props) {
         />
       );
     } else {
-      return <QueueListItem key={player.id} name={player.name} />;
+      return <QueueListItem key={player.id} name={player.name} className="queue" />;
     }
   });
 
   const firstPlayer = listPlayers[0];
   const secondPlayer = listPlayers[1];
   const queue = listPlayers.slice(2);
-
   const listClass = classNames("table-list__item", {
     "table-list__unavailable": !props.status
   });
@@ -51,11 +50,17 @@ const TableListItem = function (props) {
           <h1>{props.name}</h1>
           <div className="current-match">
             {firstPlayer}
-            {secondPlayer && 
-            <h1 id="vs"> VS. </h1>}
+            {secondPlayer &&
+              <h1 id="vs"> VS. </h1>}
             {secondPlayer}
           </div>
           {queue}
+          <section class="stage">
+  <figure class="ball">
+    <span class="shadow"></span>
+    <span class="eight"></span>
+  </figure>
+</section>
           {isTableIdNull ? (
             <div>
               <Button
