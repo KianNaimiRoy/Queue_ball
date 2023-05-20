@@ -1,33 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./TableList.scss";
+import React from "react";
+import useTables from "./hooks/useTables";
 import TableListItem from "./TableListItem";
 import classNames from "classnames";
+import "./TableList.scss";
 
-const TableList = function (props) {
-  const [state, setState] = useState({
-    focused: JSON.parse(localStorage.getItem("focused")),
-    tables: []
-  });
-
-  useEffect(() => {
-    axios.get("/api/players/count").then((response) => {
-      setState((prevState) => ({ ...prevState, tables: response.data.tables }));
-    });
-  }, []);
-
-  const selectTable = function (id) {
-    const newFocused = state.focused !== id ? id : null;
-    localStorage.setItem("focused", JSON.stringify(newFocused));
-    setState((prevState) => ({
-      ...prevState,
-      focused: newFocused
-    }));
-  };
-
-  const updateTables = function (tables) {
-    setState((prevState) => ({ ...prevState, tables: tables }));
-  };
+const TableList = function () {
+  const { state, selectTable, updateTables } = useTables();
 
   const tableClasses = classNames("table-list", {
     "table-list__focused": state.focused

@@ -13,7 +13,6 @@ const App = function (props) {
 
   return (
     <main className="App">
-
       <div>{prompt && <UsernamePrompt onClose={togglePrompt} />}</div>
       <Navigation />
       <TableList />
