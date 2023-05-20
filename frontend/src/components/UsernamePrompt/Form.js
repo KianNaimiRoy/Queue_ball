@@ -24,7 +24,7 @@ const Form = function(props) {
         if (err.response && err.response.status === 400) {
           setError(err.response.data);
         } else {
-          setError('An error occurred. Please try again later.');
+          setError("An error occurred. Please try again later.");
         }
       });
   };
