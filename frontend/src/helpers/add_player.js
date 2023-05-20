@@ -13,14 +13,6 @@ const addPlayerToLocalStorage = function(name) {
     .then(() => {
       setSession(player);
     })
-    // .catch(err => {
-    //   console.log(err.message, "");
-    //   // Handle the error here
-    //   // Example: display the error message to the user
-    //   if (err.response && err.response.status === 400) {
-    //     alert('Error: ' + err.response.data);
-    //   }
-    // });
 };
 
 export default addPlayerToLocalStorage;
