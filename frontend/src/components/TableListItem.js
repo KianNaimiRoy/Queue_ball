@@ -1,5 +1,4 @@
 import classNames from "classnames";
-
 import useTableListItem from "./hooks/useTableListItems";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
@@ -94,6 +93,7 @@ const TableListItem = function(props) {
                 >
                   Leave the Queue
                 </Button>
+
               )}
             </div>
           )}

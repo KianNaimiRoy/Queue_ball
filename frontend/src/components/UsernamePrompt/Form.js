@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Form.scss";
 import Button from "../Button";
 import "../Button.scss";
 import addPlayerToLocalStorage from "../../helpers/add_player";
-
 
 const Form = function(props) {
   const [player, setPlayer] = useState(props.player || "");
@@ -14,25 +13,35 @@ const Form = function(props) {
       setError("Player name cannot be blank");
       return;
     }
-    setError("");
-    addPlayerToLocalStorage(player);
-    props.onClose();
-  };
 
+    addPlayerToLocalStorage(player)
+      .then(() => {
+        setError("");
+        props.onClose();
+      })
+      .catch(err => {
+        console.log(err.message);
+        if (err.response && err.response.status === 400) {
+          setError(err.response.data);
+        } else {
+          setError("An error occurred. Please try again later.");
+        }
+      });
+  };
 
   return (
     <main className="user-handle-form">
       <section className="section-input">
         <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
-           <textarea 
-           className="player-name-input"
-           name="name"
-           type="text"
-           value={player}
-           placeholder="Enter Your Handle"
-           onChange={(event) => {
-             setPlayer(event.target.value);
-           }}></textarea>
+          <textarea
+            className="player-name-input"
+            name="name"
+            type="text"
+            value={player}
+            placeholder="Enter Your Handle"
+            onChange={(event) => {
+              setPlayer(event.target.value);
+            }}></textarea>
         </form>
       </section>
       <section className="user-handle-validation">{error}</section>
