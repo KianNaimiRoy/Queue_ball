@@ -4,7 +4,8 @@
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  background-color:  #9ec28f;
+  background-color: black;
+  color: aquamarine;
   resize: none;
   outline: none;
   width: 30vw;
@@ -14,4 +15,17 @@
   line-height: 1.5rem;
   border-radius: 10px;
   font-family: Georgia;
+  // text-shadow:
+    // /* White glow */
+    // 0 0 7px #fff,
+    // 0 0 10px #fff,
+    // 0 0 21px #fff,
+    /* Green glow */
+    // 0 0 42px #0fa,
+    // 0 0 82px #0fa,
+    // 0 0 92px #0fa,
+    // 0 0 102px #0fa,
+    // 0 0 151px #0fa;
+  font-family: "Vibur", sans-serif;
+
 }
