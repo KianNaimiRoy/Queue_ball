@@ -37,33 +37,6 @@ const useTableListItem = function (props) {
     return () => socket.disconnect();
   }, []);
 
-  // const listPlayers = players.filter(
-  //   (players) => props.focused === players.table_id
-  // );
-
-  // const firstPlayer =
-  //   listPlayers.length > 0 ? (
-  //     <QueueListItem
-  //       key={listPlayers[0].id}
-  //       name={listPlayers[0].name}
-  //       className="player first-player"
-  //     />
-  //   ) : null;
-
-  // const secondPlayer =
-  //   listPlayers.length > 1 ? (
-  //     <QueueListItem
-  //       key={listPlayers[1].id}
-  //       name={listPlayers[1].name}
-  //       className="player second-player"
-  //     />
-  //   ) : null;
-
-  // const remainingPlayers = listPlayers.length > 2 ? listPlayers.slice(2) : [];
-  // const remainingPlayerItems = remainingPlayers.map((player) => (
-  //   <QueueListItem key={player.id} name={player.name} />
-  // ));
-
   const joinQueue = () => {
     const playerObj = JSON.parse(localStorage.getItem("player-data"));
     playerObj.table_id = props.id;
