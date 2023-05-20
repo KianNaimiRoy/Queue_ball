@@ -51,6 +51,8 @@ const TableListItem = function (props) {
           <h1>{props.name}</h1>
           <div className="current-match">
             {firstPlayer}
+            {secondPlayer && 
+            <h1 id="vs"> VS. </h1>}
             {secondPlayer}
           </div>
           {queue}
