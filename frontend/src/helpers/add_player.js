@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setSession} from "./session_check";
+import { setSession } from "./session_check";
 
 const addPlayerToLocalStorage = function(name) {
   const player = {
@@ -13,17 +13,6 @@ const addPlayerToLocalStorage = function(name) {
     .then(() => {
       setSession(player);
     })
-    .catch(err => {
-      console.log('Error adding player:', err.message);
-      // Handle the error here to display to the user
-      if (err.response && err.response.status === 400) {
-        alert('Error: ' + err.response.data);
-      } else {
-        alert('An error occurred while adding the player.');
-      }
-    });
 };
-
-
 
 export default addPlayerToLocalStorage;

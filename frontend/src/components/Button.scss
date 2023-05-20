@@ -17,13 +17,23 @@
 
 .button--rackem {
   cursor: pointer;
-  color: #B2D2A4;
-  border-color: #B2D2A4;
-  background-color: #1A5653;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-}
+  color: #fff;
+  text-shadow:
+    /* White glow */
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    /* Green glow */
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+    font-family: "Vibur", sans-serif;
+  }
 
 .button--join:hover {
 box-shadow: 20px, 20px, rgb(0, 0, 0);

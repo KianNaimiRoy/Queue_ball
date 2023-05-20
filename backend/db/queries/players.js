@@ -78,6 +78,7 @@ const addPlayer = function(player) {
     })
     .catch((err) => {
       console.log(err);
+      throw err; // Re-throw the error to be caught and handled on the frontend
     });
 };
 
