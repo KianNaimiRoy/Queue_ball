@@ -1,38 +1,44 @@
 import classNames from "classnames";
+
+import useTableListItem from "./hooks/useTableListItems";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
+
 import "./TableListItem.scss";
-import useTableListItem from "./hooks/useTableListItems";
+
 const TableListItem = function (props) {
   const { players, joinQueue, leaveQueue, isTableIdNull, playerTableNumber } =
     useTableListItem(props);
 
-  const listPlayers = players.filter(
+  const filteredPlayers = players.filter(
     (players) => props.focused === players.table_id
   );
 
-  const firstPlayer =
-    listPlayers.length > 0 ? (
-      <QueueListItem
-        key={listPlayers[0].id}
-        name={listPlayers[0].name}
-        className="player first-player"
-      />
-    ) : null;
+  const listPlayers = filteredPlayers.map((player) => {
+    if (filteredPlayers.indexOf(player) === 0) {
+      return (
+        <QueueListItem
+          key={player.id}
+          name={player.name}
+          className="player first-player"
+        />
+      );
+    } else if (filteredPlayers.indexOf(player) === 1) {
+      return (
+        <QueueListItem
+          key={player.id}
+          name={player.name}
+          className="player second-player"
+        />
+      );
+    } else {
+      return <QueueListItem key={player.id} name={player.name} />;
+    }
+  });
 
-  const secondPlayer =
-    listPlayers.length > 1 ? (
-      <QueueListItem
-        key={listPlayers[1].id}
-        name={listPlayers[1].name}
-        className="player second-player"
-      />
-    ) : null;
-
-  const remainingPlayers = listPlayers.length > 2 ? listPlayers.slice(2) : [];
-  const remainingPlayerItems = remainingPlayers.map((player) => (
-    <QueueListItem key={player.id} name={player.name} />
-  ));
+  const firstPlayer = listPlayers[0];
+  const secondPlayer = listPlayers[1];
+  const queue = listPlayers.slice(2);
 
   const listClass = classNames("table-list__item", {
     "table-list__unavailable": !props.status
@@ -47,7 +53,7 @@ const TableListItem = function (props) {
             {firstPlayer}
             {secondPlayer}
           </div>
-          {remainingPlayerItems}
+          {queue}
           {isTableIdNull ? (
             <div>
               <Button
