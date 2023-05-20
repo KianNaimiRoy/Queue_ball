@@ -20,14 +20,15 @@ $unavailable: #8F3B21;
   }
 }
 
-p {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
 .current-match{
+  width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+#vs{
+  display: flex;
+  align-self: center;
 }
 

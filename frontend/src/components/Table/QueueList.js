@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
-import "./QueueList.scss";
 import QueueListItem from "./QueueListItem";
 
 const QueueList = function(props) {
