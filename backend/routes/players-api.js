@@ -81,11 +81,11 @@ router.post("/", (req, res) => {
     .catch((err) => {
       if (err.code === "23505") {
         // Unique constraint violation error
-        res.status(400).send("Name already in use");
+        res.status(400).send("Name already in use! Please choose a different name.");
       } else {
         // Other errors
         console.log(err);
-        res.status(500).send("An error occurred while adding the player.");
+        res.status(500).send("An error occurred while adding the player due to unique name constraint");
       }
     });
 });
