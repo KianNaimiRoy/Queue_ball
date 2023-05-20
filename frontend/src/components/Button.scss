@@ -17,8 +17,9 @@
 
 .button--rackem {
   cursor: pointer;
-  border-color: white;
-  background-color: rgb(189, 31, 178);
+  color: #B2D2A4;
+  border-color: #B2D2A4;
+  background-color: #1A5653;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -29,9 +30,9 @@ box-shadow: 20px, 20px, rgb(0, 0, 0);
 }
 .button--join {
   cursor: pointer;
-  border-color: rgb(234, 234, 234);
-  color: whitesmoke;
-  background-color: rgb(36, 36, 244);
+  color: #B2D2A4;
+  border-color: #107869;
+  background-color: #107869;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -39,8 +40,9 @@ box-shadow: 20px, 20px, rgb(0, 0, 0);
 
 .button--leave {
   cursor: pointer;
-  border-color: white;
-  background-color: rgb(227, 233, 44);
+  color: #c6f0b1;
+  border-color: #8F3B21;
+  background-color: #8F3B21;
   margin: 0 auto;
   display: flex;
   justify-content: center;
