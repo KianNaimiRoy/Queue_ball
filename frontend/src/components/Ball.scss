@@ -84,40 +84,6 @@ $queue-ball-border: #1a3315;
 }
 
 @media only screen and (min-width: 1024px) {
-  .queue-ball {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $queue-ball-background;
-    width: 300px;
-    height: 150px;
-    cursor: pointer;
-    position: absolute;
-    top: 50px;
-    left: center;
-  }
-
-  .border-within-logo {
-    font-size: 18px;
-    font-family: "Sacramento", sans-serif;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Initially set the opacity to 0 */
-    animation: fade-in 1.5s ease-in-out 0.5s forwards;
-  }
-
-  .border-within-logo h1 {
-    font-size: 3.2rem;
-    animation: pulsate 1.5s infinite alternate;
-    border: 0.2rem solid #fff;
-    border-radius: 15px;
-    padding: 0.4em;
-    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
-      0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
-  }
-
 
 .neonText-queue {
   color: #fff;
