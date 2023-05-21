@@ -54,12 +54,6 @@ const TableListItem = function(props) {
             {secondPlayer}
           </div>
           {queue}
-          <section class="stage">
-  <figure class="ball">
-    <span class="shadow"></span>
-    <span class="eight"></span>
-  </figure>
-</section>
           {isTableIdNull ? (
             <div>
               <Button
@@ -86,6 +80,7 @@ const TableListItem = function(props) {
                   className="leave"
                   type="submit"
                   onClick={(event) => {
+                    
                     event.preventDefault();
                     event.stopPropagation();
                     leaveQueue();
