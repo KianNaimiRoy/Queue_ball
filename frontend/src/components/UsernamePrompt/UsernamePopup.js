@@ -9,7 +9,7 @@ const UsernamePopup = function(props) {
       <div className="pop-up">
         <div className="pop-up-box">
           <div className="border-within">
-            <h1 className="neonText"> Welcome to <span className="neonText">QueueBall!</span></h1>
+            <h1 className="neonText"> Welcome to QueueBall!</h1>
             </div>
           <span className="close-icon" onClick={props.onClose}>x</span>
             <Form 

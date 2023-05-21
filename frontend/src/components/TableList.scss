@@ -1,7 +1,7 @@
 $table-list-background: black;
-$table-list-item-background: #d6f0c3;
+$table-list-item-background: #c0c9bb;
 $table-list-item-border: #3d550c;
-$unavailable: #8f3b21;
+$unavailable: #8d442e;
 
 .table-list {
   display: flex;
@@ -22,7 +22,6 @@ $unavailable: #8f3b21;
     justify-content: center;
     width: 300px;
     height: 300px;
-    border: 2px solid black;
     background-color: $table-list-item-background;
     border-radius: 1rem;
     margin: 1rem;
