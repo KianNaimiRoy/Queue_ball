@@ -31,16 +31,15 @@ const TableListItem = function(props) {
         />
       );
     } else {
-      return <QueueListItem key={player.id} name={player.name} />;
+      return <QueueListItem key={player.id} name={player.name} className="queue" />;
     }
   });
 
   const firstPlayer = listPlayers[0];
   const secondPlayer = listPlayers[1];
   const queue = listPlayers.slice(2);
-
   const listClass = classNames("table-list__item", {
-    "table-list__unavailable": !props.status
+    "table-list__unavailable": !props.status,
   });
 
   return (
@@ -81,6 +80,7 @@ const TableListItem = function(props) {
                   className="leave"
                   type="submit"
                   onClick={(event) => {
+                    
                     event.preventDefault();
                     event.stopPropagation();
                     leaveQueue();
