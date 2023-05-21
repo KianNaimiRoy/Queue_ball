@@ -6,8 +6,11 @@ const Ball = function () {
   };
 
   return (
-    <div className="queue-ball" onClick={clickBall}>
-      <h1>QueueBall</h1>
+    <div className="queue-ball border-within" onClick={clickBall}>
+      <h1>
+        <span className="neonText-queue">Queue</span>
+        <span className="neonText-ball">Ball</span>
+      </h1>
     </div>
   );
 };
