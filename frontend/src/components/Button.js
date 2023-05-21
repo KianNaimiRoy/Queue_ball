@@ -8,7 +8,6 @@ export default function Button(props) {
     'button--rackem': props.rackem,
     'button--join': props.join,
     'button--leave': props.leave,
-    // 'button--slideout': props.slideout
   });
 
   return (
