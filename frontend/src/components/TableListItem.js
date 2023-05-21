@@ -96,8 +96,8 @@ const TableListItem = function (props) {
       ) : (
         <>
           <h1>{props.name}</h1>
-          <h3>Current Players in the Queue</h3>
           <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+          <h3>{props.status && "Players at Table"}</h3>
         </>
       )}
     </div>
