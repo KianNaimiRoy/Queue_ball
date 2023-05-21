@@ -41,11 +41,12 @@ const TableListItem = function (props) {
 
   const listClass = classNames("table-list__item", {
     "table-list__unavailable": !props.status,
+    "table-list__available": props.status,
     "data-fade-in": props.fadeIn
   });
 
   return (
-    <div className={listClass} onClick={props.onSelect}>
+    <div className={listClass} onClick={props.status ? props.onSelect : null}>
       {props.focused ? (
         <>
           <h1>{props.name}</h1>
