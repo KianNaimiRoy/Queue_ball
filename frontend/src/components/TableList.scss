@@ -14,7 +14,18 @@ $table-list-item-background: linear-gradient(
   rgba(10, 28, 110, 0.95)
 );
 $table-list-item-border: #3d550c;
+<<<<<<< HEAD
 $unavailable: #8d442e;
+=======
+$unavailable: linear-gradient(
+  110deg,
+  rgba(217, 34, 34, 0.95),
+  rgba(169, 19, 19, 0.95),
+  rgba(128, 14, 14, 0.95),
+  rgba(107, 7, 7, 0.95)
+  
+);
+>>>>>>> master
 
 @mixin initialFadeInAnimation($delay: 3s) {
   @keyframes fade-in {
@@ -54,13 +65,20 @@ $unavailable: #8d442e;
     border-radius: 1rem;
     margin: 1rem;
   }
-  &__unavailable {
-    background-color: $unavailable;
+
+  &__unavailable{
+    background-image: $unavailable;
+  }
+  &__available {
   }
 }
-.table-list__item:hover {
+// .table-list__item:not(.table-list__unavailable):hover {
+//   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+//     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+// }
+.table-list__available:hover{
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
-    0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+      0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
 }
 
 .table-list__item p {
