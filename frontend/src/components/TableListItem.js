@@ -39,7 +39,7 @@ const TableListItem = function(props) {
   const secondPlayer = listPlayers[1];
   const queue = listPlayers.slice(2);
   const listClass = classNames("table-list__item", {
-    "table-list__unavailable": !props.status
+    "table-list__unavailable": !props.status,
   });
 
   return (
