@@ -1,13 +1,14 @@
 $queue-list-item-background: white;
 $queue-list-item-border: black;
 $animation-delay: 0.12s;
-$animation-delay-increment: 0.13; 
+$animation-delay-increment: 0.13;
 
 .queue-list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 90%;
   border: 2px solid $queue-list-item-border;
   background-color: $queue-list-item-background;
@@ -21,17 +22,16 @@ $animation-delay-increment: 0.13;
   opacity: 0;
   transform: translateX(100px); // Initial position off-screen
   border-radius: 50%;
+}
 
-  }
-
-.first-player{
+.first-player {
   background-color: goldenrod;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.3s; // Adjust the delay as needed
   opacity: 0;
   transform-origin: right;
 }
-.second-player{
+.second-player {
   background-color: silver;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.6s; // Adjust the delay as needed
@@ -42,7 +42,7 @@ $animation-delay-increment: 0.13;
   opacity: 0;
 }
 
-@for $i from 1 through 10 { 
+@for $i from 1 through 10 {
   .queue:nth-child(#{$i}) {
     animation: slidein 0.66s forwards;
     animation-delay: $animation-delay;
