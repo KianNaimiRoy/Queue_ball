@@ -7,6 +7,8 @@ import "./TableList.scss";
 const TableList = function () {
   const { state, selectTable, updateTables } = useTables();
 
+  const player = JSON.parse(localStorage.getItem("player-data"));
+
   const tableClasses = classNames("table-list", {
     "table-list__focused": state.focused
   });
@@ -30,7 +32,7 @@ const TableList = function () {
     );
   });
 
-  return <div className={tableClasses}>{listTables}</div>;
+  return <div className={tableClasses}>{player && <>{listTables}</>}</div>;
 };
 
 export default TableList;
