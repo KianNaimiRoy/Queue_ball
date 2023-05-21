@@ -4,7 +4,7 @@ import TableListItem from "./TableListItem";
 import classNames from "classnames";
 import "./TableList.scss";
 
-const TableList = function () {
+const TableList = function() {
   const { state, selectTable, updateTables } = useTables();
 
   const tableClasses = classNames("table-list", {
@@ -30,7 +30,10 @@ const TableList = function () {
     );
   });
 
-  return <div className={tableClasses}>{listTables}</div>;
+  return (
+      <div className={tableClasses}>{listTables}</div>
+  )
+  
 };
 
 export default TableList;

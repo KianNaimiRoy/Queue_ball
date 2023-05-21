@@ -1,6 +1,4 @@
-$nav-background: #84b367;
-$nav-border-bottom:#3D550C;
-
+$nav-background: #050505;
 .navbar {
   display: flex;
   align-items: center;
@@ -8,5 +6,4 @@ $nav-border-bottom:#3D550C;
   height: 100px;
   width: 100%;
   background-color: $nav-background;
-  border-bottom: 2px solid $nav-border-bottom;
 }

@@ -1,4 +1,4 @@
-$table-list-background: #4a7b4f;
+$table-list-background: #010201;
 $table-list-item-background:#d6f0c3;
 $table-list-item-border:#3D550C;
 $unavailable: #8F3B21;
@@ -12,6 +12,15 @@ $unavailable: #8F3B21;
   width: 100vw;
   background-color: $table-list-background;
   padding: 8rem 0 4rem 0;
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  padding: 0.4em;
+  // box-shadow: 0 0 .2rem #fff,
+  //           0 0 .2rem #fff,
+  //           0 0 2rem #bc13fe,
+  //           0 0 2rem #bc13fe,
+  //           0 0 2.8rem #bc13fe,
+  //           inset 0 0 1.3rem #bc13fe;  
 }
 
 .table-list {
