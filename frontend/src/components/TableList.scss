@@ -1,7 +1,33 @@
 $table-list-background: black;
-$table-list-item-background: #c0c9bb;
+// $table-list-item-background: linear-gradient(
+//   180deg,
+//   rgba(45, 0, 247, 0.09),
+//   rgba(106, 0, 244, 1),
+//   rgba(137, 0, 242, 0.9),
+//   rgba(242, 0, 137, 0.9)
+// );
+$table-list-item-background: linear-gradient(
+  110deg,
+  rgba(135, 157, 252, 0.95),
+  rgba(83, 112, 242, 0.95),
+  rgba(54, 85, 225, 0.95),
+  rgba(10, 28, 110, 0.95)
+);
 $table-list-item-border: #3d550c;
 $unavailable: #8d442e;
+
+@mixin initialFadeInAnimation($delay: 3s) {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade-in 1.5s ease-in-out $delay forwards;
+}
 
 .table-list {
   display: flex;
@@ -10,8 +36,9 @@ $unavailable: #8d442e;
   justify-content: center;
   min-height: 100vh;
   width: 100vw;
-  background-color: $table-list-background;
-  padding: 8rem 0 4rem 0;
+  background: url("../../public/images/pool_bar.jpg");
+  background-size: cover;
+  padding: 20rem 0 4rem 0;
 }
 
 .table-list {
@@ -22,7 +49,8 @@ $unavailable: #8d442e;
     justify-content: center;
     width: 300px;
     height: 300px;
-    background-color: $table-list-item-background;
+    border: 2px solid black;
+    background-image: $table-list-item-background;
     border-radius: 1rem;
     margin: 1rem;
   }
@@ -30,10 +58,19 @@ $unavailable: #8d442e;
     background-color: $unavailable;
   }
 }
+.table-list__item:hover {
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+}
 
 .table-list__item p {
   font-size: 3rem;
   font-weight: 700;
+}
+
+.data-fade-in {
+  opacity: 0;
+  @include initialFadeInAnimation();
 }
 
 .table-list__focused .table-list__item {
@@ -44,4 +81,17 @@ $unavailable: #8d442e;
   width: 90vw;
   height: 100%;
   padding: 4rem 0;
+}
+
+.current-match {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#vs {
+  display: flex;
+  align-self: center;
 }

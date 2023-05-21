@@ -1,7 +1,5 @@
-// @import "compass/css3";
-
 $nav-background: black;
-$nav-border-bottom: white;
+$nav-border-bottom: rgb(110, 110, 110);
 
 .navbar {
   display: flex;
@@ -11,7 +9,7 @@ $nav-border-bottom: white;
   width: 100%;
   background-color: $nav-background;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-  // border-bottom: 2px solid $nav-border-bottom;
+  border-bottom: 3px solid $nav-border-bottom;
 }
 
 .seperator-wrapper {

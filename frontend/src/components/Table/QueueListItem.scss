@@ -1,11 +1,14 @@
 $queue-list-item-background: white;
 $queue-list-item-border: black;
+$animation-delay: 0.12s;
+$animation-delay-increment: 0.13;
 
 .queue-list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 90%;
   border: 2px solid $queue-list-item-border;
   background-color: $queue-list-item-background;
@@ -16,11 +19,78 @@ $queue-list-item-border: black;
 
 .player {
   flex-basis: 50%;
+  opacity: 0;
+  transform: translateX(100px); // Initial position off-screen
+  border-radius: 50%;
 }
 
-.first-player{
-  background-color: goldenrod
+.first-player {
+  background-color: goldenrod;
+  animation: rollInAnimation 0.5s ease-in-out forwards;
+  animation-delay: 0.3s; // Adjust the delay as needed
+  opacity: 0;
+  transform-origin: right;
 }
-.second-player{
+.second-player {
   background-color: silver;
+  animation: rollInAnimation 0.5s ease-in-out forwards;
+  animation-delay: 0.6s; // Adjust the delay as needed
+  opacity: 0;
+  transform-origin: top;
+}
+.queue {
+  opacity: 0;
+}
+
+@for $i from 1 through 100 {
+  .queue:nth-child(#{$i}) {
+    animation: slidein 0.66s forwards;
+    animation-delay: $animation-delay;
+  }
+  $animation-delay: $animation-delay + $animation-delay-increment;
+}
+
+// .slideout {
+//   animation: slideout 0.66s forwards;
+// }
+
+// @for $i from 1 through 100 {
+//   .queue:nth-child(#{$i}) {
+//     animation: slidein 0.66s forwards, slideout 0.66s forwards;
+//     animation-delay: $animation-delay, $animation-delay + 0.66s; // Adjust the delay as needed
+//   }
+//   $animation-delay: $animation-delay + $animation-delay-increment;
+// }
+
+@keyframes rollInAnimation {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg) translateZ(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0) translateZ(0);
+  }
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideout {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }

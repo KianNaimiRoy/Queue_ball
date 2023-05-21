@@ -2,14 +2,11 @@ import "./Navigation.scss";
 import Ball from "./Ball";
 
 const Navigation = function () {
+  const player = JSON.parse(localStorage.getItem("player-data"));
+
   return (
     <>
-      <div className="navbar">
-        <Ball />
-      </div>
-      <section class="seperator-wrapper">
-        <div class="seperator gradient"></div>
-      </section>
+      <div className="navbar">{player && <Ball />}</div>
     </>
   );
 };
