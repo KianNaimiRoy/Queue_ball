@@ -3,6 +3,8 @@ import useTables from "./hooks/useTables";
 import TableListItem from "./TableListItem";
 import classNames from "classnames";
 import "./TableList.scss";
+import Navigation from "./Navigation";
+import Ball from "./Ball";
 
 const TableList = function () {
   const { state, selectTable, updateTables } = useTables();
@@ -32,7 +34,11 @@ const TableList = function () {
     );
   });
 
-  return <div className={tableClasses}>{player && <>{listTables}</>}</div>;
+  return (
+    <>
+      <div className={tableClasses}>{player && <>{listTables}</>}</div>
+    </>
+  );
 };
 
 export default TableList;
