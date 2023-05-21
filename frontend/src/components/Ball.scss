@@ -19,6 +19,8 @@ $queue-ball-border: #1a3315;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 0.5s ease-in-out 1.5s forwards;
 }
 
 .neonText-queue {
@@ -26,6 +28,9 @@ $queue-ball-border: #1a3315;
   text-shadow: 0 0 7px #fff, 0 0 42px #bc13fe, 0 0 82px #bc13fe,
     0 0 92px #bc13fe, 0 0 102px #bc13fe, 0 0 151px #bc13fe;
   font-family: "Permanent Marker", cursive;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 1.5s ease-in-out 2.5s forwards;
+  // flicker 4s infinite alternate;
 }
 
 .neonText-ball {
@@ -33,12 +38,11 @@ $queue-ball-border: #1a3315;
   text-shadow: 0 0 7px #fff, 0 0 42px #2d00f7, 0 0 82px #2d00f7,
     0 0 92px #2d00f7, 0 0 102px #2d00f7, 0 0 151px #2d00f7;
   font-family: "Permanent Marker", cursive;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 2.5s ease-in-out 3.5s forwards,
+    flicker 4s infinite alternate;
 }
 
-span {
-  font-size: 3.2rem;
-  animation: flicker 4s infinite alternate;
-}
 .border-within h1 {
   font-size: 3.2rem;
   animation: pulsate 1.5s infinite alternate;
@@ -64,5 +68,14 @@ span {
   24%,
   55% {
     text-shadow: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    opacity: 1; /* Fade to opacity 1 */
   }
 }
