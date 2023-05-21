@@ -4,13 +4,18 @@ import axios from "axios";
 const useTables = function () {
   const [state, setState] = useState({
     focused: JSON.parse(localStorage.getItem("focused")),
-    tables: []
+    tables: [],
+    tablesFadeIn: true
   });
 
   useEffect(() => {
     axios.get("/api/players/count").then((response) => {
       setState((prevState) => ({ ...prevState, tables: response.data.tables }));
     });
+    const player = JSON.parse(localStorage.getItem("player-data"));
+    if (player && !state.tablesFadeIn) {
+      setState((prevState) => ({ ...prevState, tablesFadeIn: true }));
+    }
   }, []);
 
   const selectTable = function (id) {
@@ -18,7 +23,8 @@ const useTables = function () {
     localStorage.setItem("focused", JSON.stringify(newFocused));
     setState((prevState) => ({
       ...prevState,
-      focused: newFocused
+      focused: newFocused,
+      tablesFadeIn: false
     }));
   };
 

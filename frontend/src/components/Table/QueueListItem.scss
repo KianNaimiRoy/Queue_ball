@@ -42,7 +42,7 @@ $animation-delay-increment: 0.13;
   opacity: 0;
 }
 
-@for $i from 1 through 10 {
+@for $i from 1 through 100 {
   .queue:nth-child(#{$i}) {
     animation: slidein 0.66s forwards;
     animation-delay: $animation-delay;

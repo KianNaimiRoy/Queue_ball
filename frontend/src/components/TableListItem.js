@@ -2,9 +2,6 @@ import classNames from "classnames";
 import useTableListItem from "./hooks/useTableListItems";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
-import Ball from "./Ball";
-
-// import "./TableListItem.scss";
 
 const TableListItem = function (props) {
   const { players, joinQueue, leaveQueue, isTableIdNull, playerTableNumber } =
@@ -41,8 +38,10 @@ const TableListItem = function (props) {
   const firstPlayer = listPlayers[0];
   const secondPlayer = listPlayers[1];
   const queue = listPlayers.slice(2);
+
   const listClass = classNames("table-list__item", {
-    "table-list__unavailable": !props.status
+    "table-list__unavailable": !props.status,
+    "data-fade-in": props.fadeIn
   });
 
   return (

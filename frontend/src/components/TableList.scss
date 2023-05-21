@@ -9,6 +9,19 @@ $table-list-item-background: linear-gradient(
 $table-list-item-border: #3d550c;
 $unavailable: #8f3b21;
 
+@mixin initialFadeInAnimation($delay: 3s) {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade-in 1.5s ease-in-out $delay forwards;
+}
+
 .table-list {
   display: flex;
   flex-direction: flex-wrap;
@@ -46,6 +59,11 @@ $unavailable: #8f3b21;
 .table-list__item p {
   font-size: 3rem;
   font-weight: 700;
+}
+
+.data-fade-in {
+  opacity: 0;
+  @include initialFadeInAnimation();
 }
 
 .table-list__focused .table-list__item {

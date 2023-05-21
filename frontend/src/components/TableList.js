@@ -1,10 +1,7 @@
-import React from "react";
 import useTables from "./hooks/useTables";
 import TableListItem from "./TableListItem";
 import classNames from "classnames";
 import "./TableList.scss";
-import Navigation from "./Navigation";
-import Ball from "./Ball";
 
 const TableList = function () {
   const { state, selectTable, updateTables } = useTables();
@@ -30,6 +27,7 @@ const TableList = function () {
         focused={state.focused}
         onSelect={() => selectTable(table.id)}
         updateTables={updateTables}
+        fadeIn={state.tablesFadeIn} // Pass the fade-in state as a prop
       />
     );
   });
