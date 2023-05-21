@@ -6,11 +6,7 @@ const Ball = function () {
   };
 
   return (
-<<<<<<< HEAD
-    <div id="queue-ball" onClick={clickBall}>
-=======
     <div className="queue-ball border-within-logo" onClick={clickBall}>
->>>>>>> master
       <h1>
         <span className="neonText-queue">Queue</span>
         <span className="neonText-ball">Ball</span>
