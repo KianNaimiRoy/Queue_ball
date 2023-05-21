@@ -1,10 +1,17 @@
 $table-list-background: black;
+// $table-list-item-background: linear-gradient(
+//   180deg,
+//   rgba(45, 0, 247, 0.09),
+//   rgba(106, 0, 244, 1),
+//   rgba(137, 0, 242, 0.9),
+//   rgba(242, 0, 137, 0.9)
+// );
 $table-list-item-background: linear-gradient(
-  180deg,
-  rgba(45, 0, 247, 0.09),
-  rgba(106, 0, 244, 1),
-  rgba(137, 0, 242, 0.9),
-  rgba(242, 0, 137, 0.9)
+  110deg,
+  rgba(135, 157, 252, 0.95),
+  rgba(83, 112, 242, 0.95),
+  rgba(54, 85, 225, 0.95),
+  rgba(10, 28, 110, 0.95)
 );
 $table-list-item-border: #3d550c;
 $unavailable: #8f3b21;
