@@ -3,7 +3,7 @@ import useTableListItem from "./hooks/useTableListItems";
 import QueueListItem from "./Table/QueueListItem";
 import Button from "./Button";
 
-const TableListItem = function (props) {
+const TableListItem = function(props) {
   const { players, joinQueue, leaveQueue, isTableIdNull, playerTableNumber } =
     useTableListItem(props);
 
@@ -96,8 +96,10 @@ const TableListItem = function (props) {
       ) : (
         <>
           <h1>{props.name}</h1>
-          <h3>Current Players in the Queue</h3>
-          <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+          <div className="players-at-table">
+            <p>{!props.status ? "Unavailable" : props.playerCount}</p>
+            <h3>{props.status && "Players at Table"}</h3>
+          </div>
         </>
       )}
     </div>

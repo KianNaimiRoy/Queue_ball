@@ -10,7 +10,7 @@ const Form = function (props) {
 
   const validate = function (player) {
     if (player === "") {
-      setError("Player name cannot be blank");
+      setError("Player name cannot be blank.");
       return;
     }
 

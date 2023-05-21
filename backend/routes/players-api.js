@@ -81,7 +81,7 @@ router.post("/", (req, res) => {
     .catch((err) => {
       if (err.code === "23505") {
         // Unique constraint violation error
-        res.status(400).send("Name already in use! Please choose a different name.");
+        res.status(400).send("Please choose a different name.");
       } else {
         // Other errors
         console.log(err);
