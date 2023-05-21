@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "./Form.scss";
+import React, { useState } from "react";
 import Button from "../Button";
-import "../Button.scss";
 import addPlayerToLocalStorage from "../../helpers/add_player";
+import "./Form.scss";
+import "../Button.scss";
 
-const Form = function(props) {
+const Form = function (props) {
   const [player, setPlayer] = useState(props.player || "");
   const [error, setError] = useState("");
 
-  const validate = function(player) {
+  const validate = function (player) {
     if (player === "") {
       setError("Player name cannot be blank");
       return;
@@ -19,7 +19,7 @@ const Form = function(props) {
         setError("");
         props.onClose();
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.message);
         if (err.response && err.response.status === 400) {
           setError(err.response.data);
@@ -35,19 +35,23 @@ const Form = function(props) {
         <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
           <textarea
             className="player-name-input"
+            spellcheck="false"
             name="name"
             type="text"
             value={player}
             placeholder="Enter Your Handle"
             onChange={(event) => {
               setPlayer(event.target.value);
-            }}></textarea>
+            }}
+          ></textarea>
         </form>
       </section>
       <section className="user-handle-validation">{error}</section>
 
       <section className="rackem">
-        <Button rackem onClick={() => validate(player)}>Rack 'Em Up</Button>
+        <Button rackem onClick={() => validate(player)}>
+          Rack 'Em Up
+        </Button>
       </section>
     </main>
   );

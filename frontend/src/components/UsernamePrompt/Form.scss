@@ -10,18 +10,23 @@
   outline: none;
   width: 65vw;
   border: 0;
-  border-color: #3D550C;
+  border-color: #3d550c;
   height: 4rem;
   line-height: 4rem;
   border-radius: 10px;
-  background-color: #000000;
+  background-color: transparent;
   font-family: "Vibur", sans-serif;
-
+  font-size: 1.5rem;
 }
 
-.user-handle-form{
+.user-handle-form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.user-handle-validation {
+  font-size: 1.5rem;
+  color: #bc13fe;
 }

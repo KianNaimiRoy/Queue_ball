@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navigation from "./components/Navigation";
 import UsernamePrompt from "./components/UsernamePrompt";
+import Ball from "./components/Ball";
 import TableList from "./components/TableList";
 import "./App.scss";
 
@@ -11,10 +11,12 @@ const App = function (props) {
     setPrompt(!prompt);
   };
 
+  const player = JSON.parse(localStorage.getItem("player-data"));
+
   return (
     <main className="App">
       <div>{prompt && <UsernamePrompt onClose={togglePrompt} />}</div>
-      <Navigation />
+      {player && <Ball />}
       <TableList />
     </main>
   );
