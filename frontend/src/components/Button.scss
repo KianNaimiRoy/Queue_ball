@@ -6,7 +6,7 @@
   height: 4rem;
   line-height: 1.5rem;
   margin-right: 1rem;
-  width: 30vw;
+  width: 80vw;
   border-width: 4px;
   border-style: solid;
   border-color: rgb(0, 0, 0);
@@ -16,6 +16,9 @@
 }
 
 .button--rackem {
+  font-size: 1.5rem;
+  border: none;
+  width: 65vw;
   cursor: pointer;
   margin: 0 auto;
   display: flex;

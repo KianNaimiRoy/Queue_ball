@@ -7,9 +7,9 @@ const Navigation = function () {
       <div className="navbar">
         <Ball />
       </div>
-      <section class="seperator-wrapper">
+      {/* <section class="seperator-wrapper">
         <div class="seperator gradient"></div>
-      </section>
+      </section> */}
     </>
   );
 };
