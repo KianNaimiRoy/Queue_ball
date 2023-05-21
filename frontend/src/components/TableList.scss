@@ -14,9 +14,6 @@ $table-list-item-background: linear-gradient(
   rgba(10, 28, 110, 0.95)
 );
 $table-list-item-border: #3d550c;
-<<<<<<< HEAD
-$unavailable: #8d442e;
-=======
 $unavailable: linear-gradient(
   110deg,
   rgba(217, 34, 34, 0.95),
@@ -25,7 +22,6 @@ $unavailable: linear-gradient(
   rgba(107, 7, 7, 0.95)
   
 );
->>>>>>> master
 
 @mixin initialFadeInAnimation($delay: 3s) {
   @keyframes fade-in {
