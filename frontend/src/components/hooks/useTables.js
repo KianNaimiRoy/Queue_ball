@@ -16,7 +16,7 @@ const useTables = function () {
     if (player && !state.tablesFadeIn) {
       setState((prevState) => ({ ...prevState, tablesFadeIn: true }));
     }
-  }, []);
+  }, [state.tablesFadeIn]);
 
   const selectTable = function (id) {
     const newFocused = state.focused !== id ? id : null;
