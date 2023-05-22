@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Righteous&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poiret+One&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap');
 
 $table-list-background: black;
 
@@ -54,7 +56,8 @@ $unavailable: linear-gradient(110deg,
 
   &__unavailable {
     background-image: $unavailable;
-    color: white
+    color: white;
+
   }
 }
 
@@ -73,8 +76,9 @@ $unavailable: linear-gradient(110deg,
 .table-list__item h1 {
   font-size: 2rem;
   font-weight: 700;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Rock Salt', cursive;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .table-list__item h3 {
@@ -111,6 +115,7 @@ $unavailable: linear-gradient(110deg,
 #vs {
   display: flex;
   align-self: center;
+  font-family: 'Indie Flower', cursive;
 }
 
 .players-at-table {
@@ -121,11 +126,12 @@ $unavailable: linear-gradient(110deg,
 }
 
 .players-at-table h3 {
-  font-size: 1.25rem;
+  font-size: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-family: 'Long Cang', cursive;
 }
 
 .players-at-table-count {
@@ -135,39 +141,108 @@ $unavailable: linear-gradient(110deg,
   width: 20px;
   height: 20px;
   display: flex;
+  // background-color: rgba(255, 255, 255, 1);
   align-items: center;
   justify-content: center;
   font-family: 'Poiret One', cursive;
   font-weight: 700;
 }
 
+.default-color {
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 1),
+      rgba(246, 235, 224, 1),
+      rgba(255, 255, 255, 1),
+      rgba(228, 212, 195, 1),
+      rgba(255, 255, 255, 1));
+}
+
+.player-count-zero {
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 1),
+      rgba(246, 235, 224, 1),
+      rgba(255, 255, 255, 1),
+      rgba(228, 212, 195, 1),
+      rgba(255, 255, 255, 1));
+}
+
+.player-count-zero .inner-ball-circle {
+  background-color: transparent;
+}
+
 .player-count-one {
-  background-color:rgb(253,188,0);
+  background-image: linear-gradient(120deg,
+      rgb(231, 173, 0),
+      rgb(235, 201, 97),
+      rgb(241, 194, 50),
+      rgb(244, 188, 20),
+      rgb(115, 86, 0));
 }
 
 .player-count-two {
-  background-color: rgb(54,85,138);
-}
-.player-count-three {
-  background-color: rgb(244,0,11);
-}
-.player-count-four {
-  background-color: rgb(51,29,93);
-}
-.player-count-five {
-  background-color: rgb(253,151,15);
-}
-.player-count-six{
-  background-color: rgb(16,138,91);
-}
-.player-count-seven {
-  background-color: rgb(157,86,84);
-}
-.player-count-eight {
-  background-color: rgb(25,23,24);
+  background-image: linear-gradient(120deg,
+      rgb(54, 85, 138),
+      rgb(160, 177, 203),
+      rgb(108, 136, 183),
+      rgb(81, 113, 161),
+      rgb(27, 58, 122));
 }
 
-.inner-ball-circle{
+.player-count-three {
+  background-image: linear-gradient(120deg,
+      rgb(244, 0, 11),
+      rgb(247, 114, 122),
+      rgb(196, 0, 7),
+      rgb(148, 0, 5),
+      rgb(27, 58, 122));
+}
+
+.player-count-four {
+  background-image: linear-gradient(120deg,
+      rgb(51, 29, 93),
+      rgb(104, 71, 133),
+      rgb(85, 57, 129),
+      rgb(68, 44, 106),
+      rgb(34, 21, 64));
+}
+
+.player-count-five {
+  background-image: linear-gradient(120deg,
+      rgb(253, 151, 15),
+      rgb(255, 206, 139),
+      rgb(240, 143, 10),
+      rgb(227, 135, 0),
+      rgb(177, 106, 0));
+}
+
+.player-count-six {
+  background-image: linear-gradient(120deg,
+      rgb(16, 138, 91),
+      rgb(88, 162, 122),
+      rgb(13, 145, 101),
+      rgb(10, 127, 86),
+      rgb(6, 98, 66));
+}
+
+.player-count-seven {
+  background-image: linear-gradient(120deg,
+      rgb(157, 86, 84),
+      rgb(191, 121, 119),
+      rgb(140, 78, 76),
+      rgb(123, 71, 69),
+      rgb(95, 54, 52));
+}
+
+.player-count-eight {
+  background-image: linear-gradient(120deg,
+      rgb(25, 23, 24),
+      rgb(37, 35, 36),
+      rgb(20, 17, 17),
+      rgb(16, 14, 14),
+      rgb(10, 9, 9));
+}
+
+.inner-ball-circle {
   background-color: white;
   border-radius: 50%;
   width: 20px;
@@ -182,6 +257,12 @@ $unavailable: linear-gradient(110deg,
 .table-list__unavailable .inner-ball-circle {
   background-color: transparent;
   font-size: 1.5rem;
+  font-family: 'Rock Salt', cursive;
+  margin-bottom: .67em;
+}
+
+.table-list__unavailable h1 {
+  margin-bottom: .67em;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -219,15 +300,16 @@ $unavailable: linear-gradient(110deg,
     align-items: center;
     justify-content: center;
     font-family: 'Poiret One', cursive;
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
   }
 
   .table-list__item h1 {
     font-size: 3rem;
+    margin: 0.67em
   }
 
   .table-list__item h3 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-family: "Vibur", sans-serif;
     margin: 0;
   }
@@ -249,7 +331,11 @@ $unavailable: linear-gradient(110deg,
     margin-top: 0;
   }
 
-  .inner-ball-circle{
+  .players-at-table h3 {
+    font-family: 'Long Cang', cursive;
+  }
+
+  .inner-ball-circle {
     background-color: white;
     border-radius: 50%;
     width: 50px;
@@ -259,5 +345,9 @@ $unavailable: linear-gradient(110deg,
     justify-content: center;
     font-size: 1.8rem;
   }
-  
+
+  .table-list__unavailable .inner-ball-circle {
+    font-size: 2.5rem;
+    font-family: 'Rock Salt', cursive;
+  }
 }

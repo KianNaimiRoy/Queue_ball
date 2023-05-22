@@ -46,14 +46,16 @@ const TableListItem = function(props) {
   });
 
   const listBallColours = classNames("players-at-table-count", {
+    "player-count-zero": props.playerCount === "0" && props.status,
     "player-count-one": props.playerCount === "1" && props.status,
-    "player-count-two": props.playerCount === "2" && props.status, 
+    "player-count-two": props.playerCount === "2" && props.status,
     "player-count-three": props.playerCount === "3" && props.status,
     "player-count-four": props.playerCount === "4" && props.status,
     "player-count-five": props.playerCount === "5" && props.status,
     "player-count-six": props.playerCount === "6" && props.status,
     "player-count-seven": props.playerCount === "7" && props.status,
-    "player-count-eight": props.playerCount === "8" && props.status
+    "player-count-eight": props.playerCount === "8" && props.status,
+    "default-color": props.playerCount > "8" && props.status 
   });
 
   return (
