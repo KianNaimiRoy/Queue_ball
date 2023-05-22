@@ -44,7 +44,7 @@ $unavailable: linear-gradient(110deg,
     justify-content: center;
     width: 300px;
     height: 150px;
-    border: 2px solid black;
+    // border: 2px solid black;
     background-image: $table-list-item-background;
     border-radius: 1rem;
     margin: 1rem;
@@ -57,9 +57,12 @@ $unavailable: linear-gradient(110deg,
   &__available {}
 }
 
+// .table-list__available:hover {
+//   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+//     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+// }
 .table-list__available:hover {
-  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
-    0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+  box-shadow: 0 0.2rem #C6B79B, 0.2rem 0 #C6B79B,;
 }
 
 .table-list__item p {
@@ -118,11 +121,6 @@ $unavailable: linear-gradient(110deg,
 }
 
 @media only screen and (min-width: 1024px) {
-  // $unavailable: linear-gradient(110deg,
-  //   rgba(217, 34, 34, 0.8),
-  //   rgba(169, 19, 19, 0.8),
-  //   rgba(128, 14, 14, 0.8),
-  //   rgba(107, 7, 7, 0.8));
 
   .table-list {
     &__item {
@@ -132,7 +130,7 @@ $unavailable: linear-gradient(110deg,
         justify-content: center;
         width: 300px;
         height: 300px;
-        border: 2px solid black;
+        // border: 2px solid black;
         background-image: $table-list-item-background;
         border-radius: 1rem;
         margin: 1rem;
