@@ -35,7 +35,7 @@ const useTableListItem = function (props) {
 
     //clean up  to prevent memory leak
     return () => socket.disconnect();
-  }, [props.updateTables]);
+  }, []);
 
   const joinQueue = () => {
     const playerObj = JSON.parse(localStorage.getItem("player-data"));
