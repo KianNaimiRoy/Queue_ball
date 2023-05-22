@@ -3,6 +3,7 @@
 $table-list-background: black;
 
 $table-list-item-background: linear-gradient(110deg, rgba(255, 255, 245, .9), rgba(246, 235, 224, .8), rgba(246, 238, 224, 1.000));
+
 $table-list-item-border: #3d550c;
 $unavailable: linear-gradient(110deg,
     rgba(217, 34, 34, 0.8),
@@ -55,12 +56,8 @@ $unavailable: linear-gradient(110deg,
   }
 }
 
-// .table-list__available:hover {
-//   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
-//     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
-// }
 .table-list__available:hover {
-  box-shadow: 0 0.2rem #C6B79B, 0.2rem 0 #C6B79B,;
+  box-shadow: 0 0.2rem #C6B79B, 0.2rem 0 #C6B79B, ;
 }
 
 .table-list__item p {
@@ -97,6 +94,7 @@ $unavailable: linear-gradient(110deg,
   width: 80%;
   height: 100%;
   padding: 4rem 0;
+
 }
 
 .current-match {
@@ -125,11 +123,11 @@ $unavailable: linear-gradient(110deg,
 
   .table-list {
     &__item {
-        height: 300px;
-        display: flex;
-        width: 300px;
+      height: 300px;
+      display: flex;
+      width: 300px;
     }
-  
+
     &__unavailable {
       background-image: $unavailable;
     }
@@ -148,18 +146,17 @@ $unavailable: linear-gradient(110deg,
   .table-list__item p {
     font-size: 3rem;
   }
-  
+
   .table-list__item h1 {
     font-size: 3rem;
-    // font-weight: 700;
-    }
+  }
 
   .table-list__item h3 {
     font-size: 1.5rem;
     font-family: "Vibur", sans-serif;
     margin-top: 0;
   }
-  
+
   .players-at-table {
     display: flex;
     flex-direction: column;

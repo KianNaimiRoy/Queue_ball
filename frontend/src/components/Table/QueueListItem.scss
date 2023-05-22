@@ -19,6 +19,9 @@ $animation-delay-increment: 0.13s;
   height: 100px;
   font-family: "Permanent Marker", cursive;
   overflow-wrap: anywhere;
+  box-shadow: 0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff;
 }
 
 .player {
