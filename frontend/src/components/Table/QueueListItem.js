@@ -3,7 +3,7 @@ import "./QueueListItem.scss";
 const QueueListItem = function (props) {
   return (
     <div className={`queue-list-item ${props.className}`}>
-      <h1>{props.name}</h1>
+      <h4>{props.name}</h4>
     </div>
   );
 };

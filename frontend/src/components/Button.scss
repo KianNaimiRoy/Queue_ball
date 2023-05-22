@@ -1,5 +1,5 @@
 .button {
-  border-radius: 1rem;
+  border-radius: .6rem;
   border: 0;
   font-size: 2rem;
   align-items: center;
@@ -16,6 +16,7 @@
 }
 
 .button--rackem {
+  cursor: pointer;
   font-size: 1.5rem;
   border: none;
   width: 65vw;
@@ -35,28 +36,35 @@
     0 0 92px #0fa,
     0 0 102px #0fa,
     0 0 151px #0fa;
-    font-family: "Vibur", sans-serif;
-  }
+  font-family: "Vibur", sans-serif;
+}
 
 .button--join:hover {
-box-shadow: 20px, 20px, rgb(0, 0, 0);
+  box-shadow: 20px, 20px, rgb(0, 0, 0);
 }
+
 .button--join {
   cursor: pointer;
-  color: #B2D2A4;
-  border-color: #107869;
-  background-color: #107869;
+  font-size: 2rem;
   margin: 0 auto;
+  border: none;
+  width: 25vw;
   display: flex;
   justify-content: center;
+  color: #06112f;
+  font-family: "Vibur", sans-serif;
+  background-color: #5271ff;
 }
 
 .button--leave {
   cursor: pointer;
-  color: #c6f0b1;
-  border-color: #8F3B21;
-  background-color: #8F3B21;
+  font-size: 2rem;
   margin: 0 auto;
+  border: none;
+  width: 25vw;
   display: flex;
   justify-content: center;
+  color: #f2f2f2;
+  font-family: "Vibur", sans-serif;
+  background-color: #BA0F30;
 }

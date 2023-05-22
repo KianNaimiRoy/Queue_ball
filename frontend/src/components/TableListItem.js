@@ -68,13 +68,13 @@ const TableListItem = function(props) {
                   joinQueue();
                 }}
               >
-                Join the Queue
+                Join Table
               </Button>
             </div>
           ) : (
             <div>
               {props.id !== playerTableNumber && (
-                <h1>You are currently enqueued in Table {playerTableNumber}</h1>
+                <h1 className="current-table-enqueued">You are currently at Table {playerTableNumber}</h1>
               )}
               {props.id === playerTableNumber && ( // check the table id and only render leave the queue button for that table
                 <Button
@@ -87,7 +87,7 @@ const TableListItem = function(props) {
                     leaveQueue();
                   }}
                 >
-                  Leave the Queue
+                  Leave Table
                 </Button>
               )}
             </div>

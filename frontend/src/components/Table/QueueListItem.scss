@@ -1,7 +1,7 @@
-$queue-list-item-background: white;
+$queue-list-item-background: linear-gradient(110deg, rgba(255, 255, 245, 1.000), rgba(246, 235, 224, 1.000), rgba(255, 255, 245, 1.000));
 $queue-list-item-border: black;
 $animation-delay: 0.12s;
-$animation-delay-increment: 0.13;
+$animation-delay-increment: 0.13s;
 
 .queue-list-item {
   display: flex;
@@ -15,29 +15,60 @@ $animation-delay-increment: 0.13;
   border-radius: 1rem;
   margin: 1rem;
   padding: 8px;
+  font-size: 2rem;
+  height: 100px;
+  font-family: "Permanent Marker", cursive;
+  overflow-wrap: anywhere;
 }
 
 .player {
   flex-basis: 50%;
   opacity: 0;
   transform: translateX(100px); // Initial position off-screen
-  border-radius: 50%;
+  border-radius: 1rem;
+  min-width: 85px;
+  overflow-wrap: anywhere;
 }
 
-.first-player {
-  background-color: goldenrod;
+.first-player{
+  background-color: $queue-list-item-background;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.3s; // Adjust the delay as needed
   opacity: 0;
   transform-origin: right;
+  border-color: #5271ff;
+  box-shadow: 0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 82px #5271ff,
+    0 0 92px #5271ff;
+
 }
+
+.first-player h4{
+  font-size: 20px;
+  font-family: "Permanent Marker", cursive;
+}
+
+.second-player h4{
+  font-size: 20px;
+  font-family: "Permanent Marker", cursive;
+}
+
 .second-player {
-  background-color: silver;
+  background-color: $queue-list-item-background;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.6s; // Adjust the delay as needed
   opacity: 0;
   transform-origin: top;
+  border-color: #BA0F30;
+  box-shadow: 0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 82px #BA0F30,
+    0 0 92px #BA0F30;
 }
+
 .queue {
   opacity: 0;
 }
@@ -47,26 +78,16 @@ $animation-delay-increment: 0.13;
     animation: slidein 0.66s forwards;
     animation-delay: $animation-delay;
   }
+
   $animation-delay: $animation-delay + $animation-delay-increment;
 }
-
-// .slideout {
-//   animation: slideout 0.66s forwards;
-// }
-
-// @for $i from 1 through 100 {
-//   .queue:nth-child(#{$i}) {
-//     animation: slidein 0.66s forwards, slideout 0.66s forwards;
-//     animation-delay: $animation-delay, $animation-delay + 0.66s; // Adjust the delay as needed
-//   }
-//   $animation-delay: $animation-delay + $animation-delay-increment;
-// }
 
 @keyframes rollInAnimation {
   0% {
     opacity: 0;
     transform: rotateX(-90deg) translateZ(-50px);
   }
+
   100% {
     opacity: 1;
     transform: rotateX(0) translateZ(0);
@@ -78,6 +99,7 @@ $animation-delay-increment: 0.13;
     opacity: 0;
     transform: translateX(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -89,8 +111,54 @@ $animation-delay-increment: 0.13;
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(100%);
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .player {
+    flex-basis: 50%;
+    opacity: 0;
+    transform: translateX(100px); // Initial position off-screen
+    border-radius: 1rem;
+    min-width: 85px;
+    height: 100px;
+    overflow-wrap: anywhere;
+  }
+
+  .first-player h4{
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  
+  .second-player h4{
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  .queue-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    border: 2px solid $queue-list-item-border;
+    background-color: $queue-list-item-background;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 8px;
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  .first-player{
+    border-color: #5271ff;
+  }
+
+  .second-player {
+    border-color: #BA0F30;
   }
 }
