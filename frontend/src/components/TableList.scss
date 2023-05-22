@@ -10,7 +10,7 @@ $unavailable: linear-gradient(110deg,
     rgba(128, 14, 14, 0.8),
     rgba(107, 7, 7, 0.8));
 
-@mixin initialFadeInAnimation($delay: 3s) {
+@mixin initialFadeInAnimation($delay: 1.5s) {
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -38,13 +38,13 @@ $unavailable: linear-gradient(110deg,
 
 .table-list {
   &__item {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 80%;
     height: 150px;
-    // border: 2px solid black;
     background-image: $table-list-item-background;
     border-radius: 1rem;
     margin: 1rem;
@@ -53,8 +53,6 @@ $unavailable: linear-gradient(110deg,
   &__unavailable {
     background-image: $unavailable;
   }
-
-  &__available {}
 }
 
 // .table-list__available:hover {
@@ -77,6 +75,7 @@ $unavailable: linear-gradient(110deg,
   font-size: 2rem;
   font-weight: 700;
   font-family: "Permanent Marker", cursive;
+  text-align: center;
 }
 
 .table-list__item h3 {
@@ -95,7 +94,7 @@ $unavailable: linear-gradient(110deg,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 80%;
   height: 100%;
   padding: 4rem 0;
 }
@@ -106,6 +105,7 @@ $unavailable: linear-gradient(110deg,
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 2.5rem;
 }
 
 #vs {
@@ -118,29 +118,21 @@ $unavailable: linear-gradient(110deg,
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
 }
 
 @media only screen and (min-width: 1024px) {
 
   .table-list {
     &__item {
-      display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 300px;
         height: 300px;
-        // border: 2px solid black;
-        background-image: $table-list-item-background;
-        border-radius: 1rem;
-        margin: 1rem;
+        display: flex;
+        width: 300px;
     }
   
     &__unavailable {
       background-image: $unavailable;
     }
-  
-    &__available {}
   }
 
   .table-list__focused .table-list__item {
@@ -155,17 +147,12 @@ $unavailable: linear-gradient(110deg,
 
   .table-list__item p {
     font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0;
-    margin-top: 0;
-    font-family: "Vibur", sans-serif;
   }
   
   .table-list__item h1 {
     font-size: 3rem;
-    font-weight: 700;
-    font-family: "Permanent Marker", cursive;
-  }
+    // font-weight: 700;
+    }
 
   .table-list__item h3 {
     font-size: 1.5rem;
@@ -177,5 +164,9 @@ $unavailable: linear-gradient(110deg,
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .current-match {
+    width: 93.5%;
   }
 }

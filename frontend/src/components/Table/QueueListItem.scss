@@ -1,7 +1,7 @@
 $queue-list-item-background: linear-gradient(110deg, rgba(255, 255, 245, 1.000), rgba(246, 235, 224, 1.000), rgba(255, 255, 245, 1.000));
 $queue-list-item-border: black;
 $animation-delay: 0.12s;
-$animation-delay-increment: 0.13;
+$animation-delay-increment: 0.13s;
 
 .queue-list-item {
   display: flex;
@@ -15,6 +15,10 @@ $animation-delay-increment: 0.13;
   border-radius: 1rem;
   margin: 1rem;
   padding: 8px;
+  font-size: 2rem;
+  height: 100px;
+  font-family: "Permanent Marker", cursive;
+  overflow-wrap: anywhere;
 }
 
 .player {
@@ -22,9 +26,11 @@ $animation-delay-increment: 0.13;
   opacity: 0;
   transform: translateX(100px); // Initial position off-screen
   border-radius: 1rem;
+  min-width: 85px;
+  overflow-wrap: anywhere;
 }
 
-.first-player {
+.first-player{
   background-color: $queue-list-item-background;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.3s; // Adjust the delay as needed
@@ -35,7 +41,18 @@ $animation-delay-increment: 0.13;
     0 0 10px #fff,
     0 0 21px #fff,
     0 0 82px #5271ff,
-    0 0 92px #5271ff,
+    0 0 92px #5271ff;
+
+}
+
+.first-player h4{
+  font-size: 20px;
+  font-family: "Permanent Marker", cursive;
+}
+
+.second-player h4{
+  font-size: 20px;
+  font-family: "Permanent Marker", cursive;
 }
 
 .second-player {
@@ -49,7 +66,7 @@ $animation-delay-increment: 0.13;
     0 0 10px #fff,
     0 0 21px #fff,
     0 0 82px #BA0F30,
-    0 0 92px #BA0F30,
+    0 0 92px #BA0F30;
 }
 
 .queue {
@@ -98,5 +115,50 @@ $animation-delay-increment: 0.13;
   100% {
     opacity: 0;
     transform: translateX(100%);
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .player {
+    flex-basis: 50%;
+    opacity: 0;
+    transform: translateX(100px); // Initial position off-screen
+    border-radius: 1rem;
+    min-width: 85px;
+    height: 100px;
+    overflow-wrap: anywhere;
+  }
+
+  .first-player h4{
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  
+  .second-player h4{
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  .queue-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    border: 2px solid $queue-list-item-border;
+    background-color: $queue-list-item-background;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 8px;
+    font-size: 3rem;
+    font-family: "Permanent Marker", cursive;
+  }
+  .first-player{
+    border-color: #5271ff;
+  }
+
+  .second-player {
+    border-color: #BA0F30;
   }
 }

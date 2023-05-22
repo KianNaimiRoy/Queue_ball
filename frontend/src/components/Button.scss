@@ -46,23 +46,22 @@
 .button--join {
   cursor: pointer;
   font-size: 2rem;
+  margin: 0 auto;
   border: none;
   width: 25vw;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   color: #06112f;
   font-family: "Vibur", sans-serif;
   background-color: #5271ff;
-  // border: 2px solid;
 }
 
 .button--leave {
   cursor: pointer;
   font-size: 2rem;
+  margin: 0 auto;
   border: none;
   width: 25vw;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   color: #f2f2f2;
