@@ -54,6 +54,7 @@ $unavailable: linear-gradient(110deg,
 
   &__unavailable {
     background-image: $unavailable;
+    color: white
   }
 }
 
@@ -120,6 +121,7 @@ $unavailable: linear-gradient(110deg,
 }
 
 .players-at-table h3 {
+  font-size: 1.25rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -179,6 +181,7 @@ $unavailable: linear-gradient(110deg,
 
 .table-list__unavailable .inner-ball-circle {
   background-color: transparent;
+  font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 1024px) {
