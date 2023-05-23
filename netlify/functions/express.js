@@ -25,8 +25,8 @@ export async function handler(event, context) {
   app.use(cors());
   app.use(bodyParser.json());
 
-  const playerApiRoutes = require("../../routes/players-api");
-  const tableApiRoutes = require("../../routes/tables-api");
+  const playerApiRoutes = require("../../backend/routes/players-api");
+  const tableApiRoutes = require("../../backend/routes/tables-api");
 
   app.use("/api/players", playerApiRoutes);
   app.use("/api/tables", tableApiRoutes);
