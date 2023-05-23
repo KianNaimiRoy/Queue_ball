@@ -55,6 +55,9 @@ $queue-ball-border: #1a3315;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
   width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @keyframes flicker {
   0%,
