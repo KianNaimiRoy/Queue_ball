@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Cabin+Sketch&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Cabin+Sketch&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Cabin+Sketch&family=Fredericka+the+Great&family=Nanum+Pen+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Cabin+Sketch&family=Fredericka+the+Great&family=Nanum+Pen+Script&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
-$queue-list-item-background: linear-gradient(110deg, rgba(255, 255, 245, 1.000), rgba(246, 235, 224, 1.000), rgba(255, 255, 245, 1.000));
+$queue-list-item-background: linear-gradient(
+  110deg,
+  rgba(255, 255, 245, 1),
+  rgba(246, 235, 224, 1),
+  rgba(255, 255, 245, 1)
+);
 $queue-list-item-border: black;
 $animation-delay: 0.12s;
 $animation-delay-increment: 0.13s;
@@ -23,11 +28,9 @@ $animation-delay-increment: 0.13s;
   padding: 8px;
   font-size: 2rem;
   height: 100px;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   overflow-wrap: anywhere;
-  box-shadow: 0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff;
 }
 
 .player {
@@ -39,29 +42,25 @@ $animation-delay-increment: 0.13s;
   overflow-wrap: anywhere;
 }
 
-.first-player{
+.first-player {
   background-color: $queue-list-item-background;
   animation: rollInAnimation 0.5s ease-in-out forwards;
   animation-delay: 0.3s; // Adjust the delay as needed
   opacity: 0;
   transform-origin: right;
   border-color: #5271ff;
-  box-shadow: 0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 82px #5271ff,
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 82px #5271ff,
     0 0 92px #5271ff;
-
 }
 
-.first-player h4{
-  font-size: 20px;
-  font-family: "Permanent Marker", cursive;
+.first-player h4 {
+  font-size: 1.7rem;
+  font-family: "Long Cang", cursive;
 }
 
-.second-player h4{
-  font-size: 20px;
-  font-family: "Permanent Marker", cursive;
+.second-player h4 {
+  font-size: 1.7rem;
+  font-family: "Long Cang", cursive;
 }
 
 .second-player {
@@ -70,12 +69,9 @@ $animation-delay-increment: 0.13s;
   animation-delay: 0.6s; // Adjust the delay as needed
   opacity: 0;
   transform-origin: top;
-  border-color: #BA0F30;
-  box-shadow: 0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 82px #BA0F30,
-    0 0 92px #BA0F30;
+  border-color: #ba0f30;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 82px #ba0f30,
+    0 0 92px #ba0f30;
 }
 
 .queue {
@@ -127,7 +123,6 @@ $animation-delay-increment: 0.13s;
   }
 }
 
-
 @media only screen and (min-width: 1024px) {
   .player {
     flex-basis: 50%;
@@ -139,14 +134,15 @@ $animation-delay-increment: 0.13s;
     overflow-wrap: anywhere;
   }
 
-  .first-player h4{
+  .first-player h4 {
     font-size: 3rem;
-    font-family: 'Indie Flower', cursive;  }
-  
-  .second-player h4{
+    font-family: "Indie Flower", cursive;
+  }
+
+  .second-player h4 {
     font-size: 3rem;
-    font-family: 'Indie Flower', cursive;
-    }
+    font-family: "Indie Flower", cursive;
+  }
 
   .queue-list-item {
     display: flex;
@@ -161,12 +157,14 @@ $animation-delay-increment: 0.13s;
     margin: 1rem;
     padding: 8px;
     font-size: 3rem;
-    font-family: 'Indie Flower', cursive;  }
-  .first-player{
+    font-family: "Indie Flower", cursive;
+  }
+
+  .first-player {
     border-color: #5271ff;
   }
 
   .second-player {
-    border-color: #BA0F30;
+    border-color: #ba0f30;
   }
 }
