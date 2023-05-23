@@ -1,20 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poiret+One&family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poiret+One&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Long+Cang&display=swap");
 
 $table-list-background: black;
 
-$table-list-item-background: linear-gradient(110deg, rgba(255, 255, 245, .9), rgba(246, 235, 224, .8), rgba(246, 238, 224, 1.000));
+$table-list-item-background: linear-gradient(
+  110deg,
+  rgba(255, 255, 245, 0.9),
+  rgba(246, 235, 224, 0.8),
+  rgba(246, 238, 224, 1)
+);
 
 $table-list-item-border: #3d550c;
-$unavailable: linear-gradient(110deg,
-    rgba(217, 34, 34, 0.8),
-    rgba(169, 19, 19, 0.8),
-    rgba(128, 14, 14, 0.8),
-    rgba(107, 7, 7, 0.8));
+$unavailable: linear-gradient(
+  110deg,
+  rgba(217, 34, 34, 0.8),
+  rgba(169, 19, 19, 0.8),
+  rgba(128, 14, 14, 0.8),
+  rgba(107, 7, 7, 0.8)
+);
 
-@mixin initialFadeInAnimation($delay: 1.5s) {
+@mixin initialFadeInAnimation($delay: 3s) {
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -57,12 +64,11 @@ $unavailable: linear-gradient(110deg,
   &__unavailable {
     background-image: $unavailable;
     color: white;
-
   }
 }
 
 .table-list__available:hover {
-  box-shadow: 0 0.2rem #C6B79B, 0.2rem 0 #C6B79B, ;
+  box-shadow: 0 0.2rem #c6b79b, 0.2rem 0 #c6b79b;
 }
 
 .table-list__item p {
@@ -70,13 +76,13 @@ $unavailable: linear-gradient(110deg,
   font-weight: 700;
   margin-bottom: 0;
   margin-top: 0;
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
 }
 
 .table-list__item h1 {
   font-size: 2rem;
   font-weight: 700;
-  font-family: 'Rock Salt', cursive;
+  font-family: "Rock Salt", cursive;
   text-align: center;
   margin-bottom: 0;
 }
@@ -84,7 +90,7 @@ $unavailable: linear-gradient(110deg,
 .table-list__item h3 {
   font-size: 1rem;
   font-family: "Vibur", sans-serif;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .data-fade-in {
@@ -100,7 +106,6 @@ $unavailable: linear-gradient(110deg,
   width: 80%;
   height: 100%;
   padding: 4rem 0;
-
 }
 
 .current-match {
@@ -115,7 +120,7 @@ $unavailable: linear-gradient(110deg,
 #vs {
   display: flex;
   align-self: center;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
 }
 
 .players-at-table {
@@ -131,7 +136,7 @@ $unavailable: linear-gradient(110deg,
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-family: 'Long Cang', cursive;
+  font-family: "Long Cang", cursive;
 }
 
 .players-at-table-count {
@@ -144,26 +149,30 @@ $unavailable: linear-gradient(110deg,
   // background-color: rgba(255, 255, 255, 1);
   align-items: center;
   justify-content: center;
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   font-weight: 700;
 }
 
 .default-color {
-  background-image: linear-gradient(120deg,
-      rgba(255, 255, 255, 1),
-      rgba(246, 235, 224, 1),
-      rgba(255, 255, 255, 1),
-      rgba(228, 212, 195, 1),
-      rgba(255, 255, 255, 1));
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 1),
+    rgba(246, 235, 224, 1),
+    rgba(255, 255, 255, 1),
+    rgba(228, 212, 195, 1),
+    rgba(255, 255, 255, 1)
+  );
 }
 
 .player-count-zero {
-  background-image: linear-gradient(120deg,
-      rgba(255, 255, 255, 1),
-      rgba(246, 235, 224, 1),
-      rgba(255, 255, 255, 1),
-      rgba(228, 212, 195, 1),
-      rgba(255, 255, 255, 1));
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 1),
+    rgba(246, 235, 224, 1),
+    rgba(255, 255, 255, 1),
+    rgba(228, 212, 195, 1),
+    rgba(255, 255, 255, 1)
+  );
 }
 
 .player-count-zero .inner-ball-circle {
@@ -171,75 +180,91 @@ $unavailable: linear-gradient(110deg,
 }
 
 .player-count-one {
-  background-image: linear-gradient(120deg,
-      rgb(231, 173, 0),
-      rgb(235, 201, 97),
-      rgb(241, 194, 50),
-      rgb(244, 188, 20),
-      rgb(115, 86, 0));
+  background-image: linear-gradient(
+    120deg,
+    rgb(231, 173, 0),
+    rgb(235, 201, 97),
+    rgb(241, 194, 50),
+    rgb(244, 188, 20),
+    rgb(115, 86, 0)
+  );
 }
 
 .player-count-two {
-  background-image: linear-gradient(120deg,
-      rgb(54, 85, 138),
-      rgb(160, 177, 203),
-      rgb(108, 136, 183),
-      rgb(81, 113, 161),
-      rgb(27, 58, 122));
+  background-image: linear-gradient(
+    120deg,
+    rgb(54, 85, 138),
+    rgb(160, 177, 203),
+    rgb(108, 136, 183),
+    rgb(81, 113, 161),
+    rgb(27, 58, 122)
+  );
 }
 
 .player-count-three {
-  background-image: linear-gradient(120deg,
-      rgb(244, 0, 11),
-      rgb(247, 114, 122),
-      rgb(196, 0, 7),
-      rgb(148, 0, 5),
-      rgb(27, 58, 122));
+  background-image: linear-gradient(
+    120deg,
+    rgb(244, 0, 11),
+    rgb(247, 114, 122),
+    rgb(196, 0, 7),
+    rgb(148, 0, 5),
+    rgb(27, 58, 122)
+  );
 }
 
 .player-count-four {
-  background-image: linear-gradient(120deg,
-      rgb(51, 29, 93),
-      rgb(104, 71, 133),
-      rgb(85, 57, 129),
-      rgb(68, 44, 106),
-      rgb(34, 21, 64));
+  background-image: linear-gradient(
+    120deg,
+    rgb(51, 29, 93),
+    rgb(104, 71, 133),
+    rgb(85, 57, 129),
+    rgb(68, 44, 106),
+    rgb(34, 21, 64)
+  );
 }
 
 .player-count-five {
-  background-image: linear-gradient(120deg,
-      rgb(253, 151, 15),
-      rgb(255, 206, 139),
-      rgb(240, 143, 10),
-      rgb(227, 135, 0),
-      rgb(177, 106, 0));
+  background-image: linear-gradient(
+    120deg,
+    rgb(253, 151, 15),
+    rgb(255, 206, 139),
+    rgb(240, 143, 10),
+    rgb(227, 135, 0),
+    rgb(177, 106, 0)
+  );
 }
 
 .player-count-six {
-  background-image: linear-gradient(120deg,
-      rgb(16, 138, 91),
-      rgb(88, 162, 122),
-      rgb(13, 145, 101),
-      rgb(10, 127, 86),
-      rgb(6, 98, 66));
+  background-image: linear-gradient(
+    120deg,
+    rgb(16, 138, 91),
+    rgb(88, 162, 122),
+    rgb(13, 145, 101),
+    rgb(10, 127, 86),
+    rgb(6, 98, 66)
+  );
 }
 
 .player-count-seven {
-  background-image: linear-gradient(120deg,
-      rgb(157, 86, 84),
-      rgb(191, 121, 119),
-      rgb(140, 78, 76),
-      rgb(123, 71, 69),
-      rgb(95, 54, 52));
+  background-image: linear-gradient(
+    120deg,
+    rgb(157, 86, 84),
+    rgb(191, 121, 119),
+    rgb(140, 78, 76),
+    rgb(123, 71, 69),
+    rgb(95, 54, 52)
+  );
 }
 
 .player-count-eight {
-  background-image: linear-gradient(120deg,
-      rgb(25, 23, 24),
-      rgb(37, 35, 36),
-      rgb(20, 17, 17),
-      rgb(16, 14, 14),
-      rgb(10, 9, 9));
+  background-image: linear-gradient(
+    120deg,
+    rgb(25, 23, 24),
+    rgb(37, 35, 36),
+    rgb(20, 17, 17),
+    rgb(16, 14, 14),
+    rgb(10, 9, 9)
+  );
 }
 
 .inner-ball-circle {
@@ -257,22 +282,21 @@ $unavailable: linear-gradient(110deg,
 .table-list__unavailable .inner-ball-circle {
   background-color: transparent;
   font-size: 1.5rem;
-  font-family: 'Rock Salt', cursive;
-  margin-bottom: .67em;
+  font-family: "Rock Salt", cursive;
+  margin-bottom: 0.67em;
 }
 
 .table-list__unavailable h1 {
-  margin-bottom: .67em;
+  margin-bottom: 0.67em;
 }
 
 @media only screen and (min-width: 1024px) {
-
   .table-list {
     &__item {
       height: 300px;
       display: flex;
       width: 300px;
-      justify-content: center
+      justify-content: center;
     }
 
     &__unavailable {
@@ -299,13 +323,13 @@ $unavailable: linear-gradient(110deg,
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poiret One', cursive;
-    margin-bottom: .5rem;
+    font-family: "Poiret One", cursive;
+    margin-bottom: 0.5rem;
   }
 
   .table-list__item h1 {
     font-size: 3rem;
-    margin: 0.67em
+    margin: 0.67em;
   }
 
   .table-list__item h3 {
@@ -315,7 +339,7 @@ $unavailable: linear-gradient(110deg,
   }
 
   .table-list__item p {
-    font-family: 'Poiret One', cursive;
+    font-family: "Poiret One", cursive;
   }
 
   .current-match {
@@ -327,12 +351,12 @@ $unavailable: linear-gradient(110deg,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Poiret One', cursive;
+    font-family: "Poiret One", cursive;
     margin-top: 0;
   }
 
   .players-at-table h3 {
-    font-family: 'Long Cang', cursive;
+    font-family: "Long Cang", cursive;
   }
 
   .inner-ball-circle {
@@ -348,6 +372,6 @@ $unavailable: linear-gradient(110deg,
 
   .table-list__unavailable .inner-ball-circle {
     font-size: 2.5rem;
-    font-family: 'Rock Salt', cursive;
+    font-family: "Rock Salt", cursive;
   }
 }
