@@ -9,9 +9,14 @@ const useTables = function () {
   });
 
   useEffect(() => {
-    axios.get("/api/players/count").then((response) => {
-      setState((prevState) => ({ ...prevState, tables: response.data.tables }));
-    });
+    axios
+      .get("http://192.53.120.128:8000/api/players/count")
+      .then((response) => {
+        setState((prevState) => ({
+          ...prevState,
+          tables: response.data.tables
+        }));
+      });
     const player = JSON.parse(localStorage.getItem("player-data"));
     if (player && !state.tablesFadeIn) {
       setState((prevState) => ({ ...prevState, tablesFadeIn: true }));

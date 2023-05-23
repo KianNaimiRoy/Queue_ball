@@ -4,14 +4,15 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 const bodyParser = require("body-parser");
 const socketIo = require("socket.io");
 const http = require("http");
 const server = http.createServer(app);
 const io = socketIo(server, {
+  path: "/api/socket",
   cors: {
-    origin: "http://localhost:8080/"
+    origin: "http://192.53.120.128:3000"
   }
 });
 

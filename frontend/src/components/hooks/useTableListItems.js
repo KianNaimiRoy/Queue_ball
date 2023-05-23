@@ -4,14 +4,16 @@ import axios from "axios";
 
 const useTableListItem = function (props) {
   const [players, setPlayers] = useState([]);
-  const [socket, setSocket] = useState([]);
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    axios.get("/api/players").then((response) => {
+    axios.get("http://192.53.120.128:8000/api/players").then((response) => {
       setPlayers(response.data.players);
     });
 
-    const socket = io("http://localhost:3000/");
+    const socket = io("http://192.53.120.128:8000", {
+      path: "/api/socket"
+    });
     setSocket(socket);
 
     socket.on("connect", () => {
@@ -40,12 +42,14 @@ const useTableListItem = function (props) {
   const joinQueue = () => {
     const playerObj = JSON.parse(localStorage.getItem("player-data"));
     playerObj.table_id = props.id;
-    localStorage.setItem("player-data", JSON.stringify(playerObj)); // Update table_id in localStorage
+    localStorage.setItem("player-data", JSON.stringify(playerObj)); // Update ta>
     socket.emit("enqueue", playerObj);
-    axios.patch("/api/players/enqueued", playerObj).then((response) => {
-      socket.emit("table-update", response.data.tables);
-      props.updateTables(response.data.tables);
-    });
+    axios
+      .patch("http://192.53.120.128:8000/api/players/enqueued", playerObj)
+      .then((response) => {
+        socket.emit("table-update", response.data.tables);
+        props.updateTables(response.data.tables);
+      });
   };
 
   const leaveQueue = () => {
@@ -53,10 +57,12 @@ const useTableListItem = function (props) {
     playerObj.table_id = null; // Update table_id in localStorage(set it to null)
     localStorage.setItem("player-data", JSON.stringify(playerObj));
     socket.emit("dequeue", playerObj);
-    axios.patch("/api/players/dequeued", playerObj).then((response) => {
-      socket.emit("table-update", response.data.tables);
-      props.updateTables(response.data.tables);
-    });
+    axios
+      .patch("http://192.53.120.128:8000/api/players/dequeued", playerObj)
+      .then((response) => {
+        socket.emit("table-update", response.data.tables);
+        props.updateTables(response.data.tables);
+      });
   };
 
   const isTableIdNull = localStorage.getItem("player-data")

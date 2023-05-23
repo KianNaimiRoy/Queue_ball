@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +15,7 @@
     "socket.io-client": "^4.6.1",
     "web-vitals": "^2.1.4"
   },
+  "proxy": "http://192.53.120.128:8000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -42,5 +42,10 @@
   },
   "devDependencies": {
     "sass": "^1.62.1"
+  },
+  "options": {
+    "allowedHosts": [
+      "http://192.53.120.128"
+    ]
   }
 }
