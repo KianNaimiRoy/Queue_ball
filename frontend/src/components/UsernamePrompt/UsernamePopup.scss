@@ -28,7 +28,7 @@
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
-  top: 25%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70vw;
@@ -70,6 +70,7 @@ span {
   animation: flicker 4s infinite alternate;
   font-family: "Permanent Marker", cursive;
 }
+
 .border-within h1 {
   font-size: 1.5rem;
   animation: pulsate 1.5s infinite alternate;
@@ -79,6 +80,7 @@ span {
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
 }
+
 @keyframes flicker {
   0%,
   18%,
