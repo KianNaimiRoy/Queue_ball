@@ -32,12 +32,12 @@ io.on("connection", (client) => {
   console.log("Client connected: ", client.id);
 
   client.on("enqueue", (player) => {
-    console.log(`Player ${player} has joined the queque`);
+    console.log(`${player.name} has joined Table ${player.table_id}`);
     io.emit("enqueue", player);
   });
 
   client.on("dequeue", (player) => {
-    console.log(`Backend Dequeue Player: `, player);
+    console.log(`${player.name} has left their table`);
     io.emit("dequeue", player);
   });
 
