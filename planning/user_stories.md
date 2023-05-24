@@ -8,10 +8,10 @@ Users should be able to see where they are in the queue
 Users should not be able to join the queue more than once
 Users should not be able to join multiple queues at once
 
-Admins should be able to add to, remove from and edit the queue
-Admins should be able to add, remove and mark tables out of order
 
 Stretch Stories: 
+Admins should be able to add to, remove from and edit the queue
+Admins should be able to add, remove and mark tables out of order
 
 Users should be able to change their name
 Admins should be able to set the table colour when creating or editing
