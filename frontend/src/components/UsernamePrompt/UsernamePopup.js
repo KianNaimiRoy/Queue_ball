@@ -15,9 +15,10 @@ const UsernamePopup = function (props) {
           </div>
           <div className="welcome-message">
             We're excited to introduce a modern way to reserve your spot at the
-            pool table without the hassle of coins or waiting in line. With our
-            app, all you need to do is simply scan the QR code near the pool
-            table, and you'll be added to the virtual queue.
+            pool table without the hassle of hunting for coins or waiting in
+            line. All you need to do is simply scan the QR code near your table
+            of choice and add yourself to the queue. To get started, enter a
+            unique handle below.
           </div>
           {/* <span className="close-icon" onClick={props.onClose}>x</span> */}
           <Form onClose={props.onClose} />
