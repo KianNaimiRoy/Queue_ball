@@ -4,7 +4,7 @@ import Ball from "./components/Ball";
 import TableList from "./components/TableList";
 import "./App.scss";
 
-const App = function (props) {
+const App = function () {
   const [prompt, setPrompt] = useState(true);
 
   const togglePrompt = () => {
