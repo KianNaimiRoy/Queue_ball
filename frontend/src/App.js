@@ -9,6 +9,7 @@ const App = function (props) {
 
   const togglePrompt = () => {
     setPrompt(!prompt);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const player = JSON.parse(localStorage.getItem("player-data"));
