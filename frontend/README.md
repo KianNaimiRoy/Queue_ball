@@ -4,9 +4,9 @@ QueueBall is a modern way of reserving your spot at a pool table in your favouri
 
 
 # Final Product
-!["When a user scans the QR code, they will be redirected to homepage."](#)
-!["Screenshot Description"](#)
-!["Screenshot Description"](#)
+!["When a user scans the QR code, they will be redirected to homepage."](https://raw.githubusercontent.com/KianNaimiRoy/Queue_ball/23cdfba922eb562b2a4bae31dd36181afdcb85c5/docs/Screenshot%202023-05-24%20at%205.43.58%20PM.png)
+!["Once a user has enter their name, they will be able to browse the tables and join the queue."](https://raw.githubusercontent.com/KianNaimiRoy/Queue_ball/23cdfba922eb562b2a4bae31dd36181afdcb85c5/docs/Screenshot%202023-05-24%20at%205.47.43%20PM.png)
+!["A user can join any table that is marked available"](https://raw.githubusercontent.com/KianNaimiRoy/Queue_ball/23cdfba922eb562b2a4bae31dd36181afdcb85c5/docs/Screenshot%202023-05-24%20at%205.47.11%20PM.png)
 !["Screenshot Description"](#)
 
 
